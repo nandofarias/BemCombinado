@@ -8,7 +8,12 @@
 @import colors
 @import typography
     
+
+// Media Queries
+$med: "only screen and (max-width : 60rem)"
+$sml: "only screen and (max-width : 46rem)"
     
+//Clearfix
 =clearfix
     &:after
         content: ""
@@ -51,22 +56,30 @@ header
             
 section
     padding: 1rem 6rem
+    @media #{$med}
+        padding: 1rem 2rem
 #hero
     background: url('https://images.unsplash.com/photo-1437943085269-6da5dd4295bf?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=d0978de624b31f96427f5201f0a51b6c')
     background-repeat: no-repeat
     background-position: center
     background-size: cover
-    height: 30rem
     h1
+        @media #{$med}
+            padding: 4rem 0rem 0
         color: white
         padding: 7.5rem 0rem 0
     form
         margin: 3rem auto
         max-width: 30rem
+        @media #{$sml}
+            margin: 0 auto
+            max-width: 85%
         i
             position: absolute
             height: 1.2rem
-            padding: 0.55rem 1rem
+            padding: 0.45rem 1rem
+            @media #{$sml}
+                padding: 0.45rem 0.55rem
             color: $Text
         input[type="text"]
             width: 100%
@@ -74,9 +87,11 @@ section
             border: none
                 radius: 0.333rem
             padding: 0.5rem 0rem 0.5rem 3rem
+            @media #{$sml}
+                padding: 0.5rem 0rem 0.5rem 2rem
             color: $Text
             font:
-                size: 1rem        
+                size: 0.75rem        
 
 #how-it-works
     display: flex
@@ -88,6 +103,8 @@ section
         width: 100%
 
     .step
+        @media #{$sml}
+            width: 90%
         width: 30%
         padding: 2rem 1rem
         margin: 0 1%
@@ -120,6 +137,10 @@ section
         vertical-align: top
         background: white
         box-shadow: 3px 3px 5px 6px #ccc
+        @media #{$med}
+            width: 40%
+        @media #{$sml}
+            width: 90%
         
         .img
             height: 12rem
@@ -138,16 +159,24 @@ section
     background-position: center
     background-size: cover
     height: 30rem
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: center
     
     h2
         color: white
+        width: 100%
     
-    .form-taskers
-        display: inline-block
+    .form-taskers     
         background: white
         width: 26rem
         border:
             radius: 2rem
+        
+        @media #{$med}
+            margin: 2rem auto
+            padding: 1rem 0
             
         form
             width: 55%
@@ -156,7 +185,7 @@ section
                 width: 100%
                 padding: 0.5rem 0
                 font:
-                    size: 1rem
+                    size: 0.933rem
                 text-align: center
                 
             input:not([type=submit])
@@ -177,7 +206,7 @@ section
     ul
         display: inline-block
         color: white
-        width: calc(100% - 27rem)
+        width: calc(100% - 28rem)
         font:
             size: 3.333rem
             weight: 700
@@ -185,6 +214,10 @@ section
         text-align: center
         vertical-align: top
         padding-top: 2rem
+        
+        @media #{$med}
+            display: none
+            
         
 #partner
     display: flex
@@ -196,9 +229,12 @@ section
     h4
         width: 100%
     img
+        @media #{$med}
+            width: 30%
+            height: 30%
         margin: 1% 3%
-        width: 30%
-        height: 30%
+        width: 20%
+        height: 20%
         
 
 footer
