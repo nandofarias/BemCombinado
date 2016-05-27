@@ -1,0 +1,24 @@
+{
+  "name": "bemcombinado",
+  "description": "BemCombinado application",
+  "main": "index.js",
+  "authors": [
+    "nandofarias"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bem",
+    "combinado",
+    "api",
+    "application"
+  ],
+  "homepage": "https://github.com/NandoFarias/BemCombinado",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

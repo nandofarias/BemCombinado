@@ -1,0 +1,25 @@
+{
+  "name": "bemcombinado",
+  "version": "1.0.0",
+  "description": "BemCombinado application",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NandoFarias/BemCombinado.git"
+  },
+  "keywords": [
+    "bem",
+    "combinado",
+    "api",
+    "application"
+  ],
+  "author": "nandofarias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NandoFarias/BemCombinado/issues"
+  },
+  "homepage": "https://github.com/NandoFarias/BemCombinado#readme"
+}
