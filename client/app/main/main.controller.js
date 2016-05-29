@@ -5,10 +5,10 @@
         .module('app.main')
         .controller('mainController', mainController);
 
-    mainController.$inject = [];
+    mainController.$inject = ['ngDialog'];
 
     /* @ngInject */
-    function mainController() {
+    function mainController(ngDialog) {
         var vm = this;
         vm.title = 'mainController';
 
@@ -17,6 +17,7 @@
         ////////////////
 
         function activate() {
+            
         }
     }
 })();

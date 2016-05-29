@@ -15,27 +15,16 @@
 
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
         <link rel="stylesheet" type="text/css" href="bower_components/ng-dialog/css/ngDialog.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/ng-dialog/css/ngDialog-theme-plain.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
         <script src="https://use.fontawesome.com/6d016b0b68.js"></script>
     </head>
     <body>
-        <header>
-            <a alt="BemCombinado.com" href="#" class="logo">BemCombinado.com</a>
-            <nav>
-                <ul>
-                    <li><a href="#"><span>Cadastrar</span></a></li>
-                    <li><a href="#"><span>Entrar</span></a></li>
-                </ul>
-            </nav>
-        </header>
+        <header></header>
         
-        <div ui-view>
-
-        </div>
+        <main ui-view></main>
         
-        <footer>
-            <p>@2016 BemCombinado.com</p>
-        </footer>
+        <footer></footer>
 
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
@@ -49,6 +38,9 @@
 
         <script type="text/javascript" src="app/main/main.js"></script>
         <script type="text/javascript" src="app/main/main.controller.js"></script>
+
+        <script type="text/javascript" src="components/footer/footer.directive.js"></script>
+        <script type="text/javascript" src="components/header/header.directive.js"></script>
 
     </body>
 </html>

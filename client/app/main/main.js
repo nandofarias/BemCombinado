@@ -2,7 +2,9 @@
     'use strict';
 
     angular
-        .module('app.main',[])
+        .module('app.main',[
+            'ngDialog'
+        ])
         .run(appRun);
 
     /* @ngInject */
