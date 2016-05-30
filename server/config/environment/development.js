@@ -4,7 +4,7 @@
 // ==================================
 module.exports = {
     mongo: {
-        uri: 'mongodb://localhost/EasyServicesAPI'
+        uri: 'mongodb://localhost/BemCombinado'
     }
 
 };

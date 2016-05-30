@@ -94,6 +94,7 @@ jspm_packages
 .idea/misc.xml
 .idea/modules.xml
 .idea/jsLibraryMappings.xml
+.idea/watcherTasks.xml
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids

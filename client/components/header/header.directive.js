@@ -37,11 +37,13 @@
         ////////////////
 
         function activate() {
-            vm.clickToOpen = function () {
+            vm.signup = function () {
                 ngDialog.open(
                     {
-                        template: 'app/account/login/login.html',
-                        className: 'ngdialog-theme-plain'
+                        template: 'app/account/signup/signup.html',
+                        className: 'ngdialog-theme-plain',
+                        controller: 'signupController',
+                        controllerAs: 'vm'
                     });
             };
         }
