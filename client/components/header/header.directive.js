@@ -37,15 +37,30 @@
         ////////////////
 
         function activate() {
-            vm.signup = function () {
-                ngDialog.open(
-                    {
-                        template: 'app/account/signup/signup.html',
-                        className: 'ngdialog-theme-plain',
-                        controller: 'signupController',
-                        controllerAs: 'vm'
-                    });
-            };
+            vm.signup = signup;
+            vm.login = login;
+
+
+        }
+
+        function signup(){
+            ngDialog.open(
+                {
+                    template: 'app/account/signup/signup.html',
+                    className: 'ngdialog-theme-plain',
+                    controller: 'signupController',
+                    controllerAs: 'vm'
+                });
+        }
+
+        function login(){
+            ngDialog.open(
+                {
+                    template: 'app/account/login/login.html',
+                    className: 'ngdialog-theme-plain',
+                    controller: 'loginController',
+                    controllerAs: 'vm'
+                });
         }
     }
 

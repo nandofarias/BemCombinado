@@ -5,10 +5,10 @@
         .module('app.account')
         .controller('signupController', signupController);
 
-    signupController.$inject = ['$cookies', '$http', '$scope'];
+    signupController.$inject = ['Auth', '$state', '$scope'];
 
     /* @ngInject */
-    function signupController($cookies, $http, $scope) {
+    function signupController(Auth, $state, $scope) {
         var vm = this;
 
         activate();
@@ -21,15 +21,23 @@
         }
 
         function register() {
-            $http.post('/api/users',{
+            Auth.createUser({
                 name: vm.user.name,
+                email: vm.user.email,
                 password: vm.user.password
-            }).then(function (res) {
-                $cookies.put('token', res.data.token);
-                $scope.closeThisDialog('close');
-            }).catch(function (err) {
-                console.log(err);
             })
+                .then(function() {
+                    $state.go('main');
+                })
+                .catch(function(err) {
+                    err = err.data;
+                    angular.forEach(err.errors, function (error, field) {
+                        //form[field].$setValidity('mongoose', false);
+                        //vm.errors[field] = error.message;
+                    });
+                });
+            $scope.closeThisDialog('close');
+
         }
     }
 

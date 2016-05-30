@@ -41,6 +41,21 @@ function create(req, res, next) {
         .catch(validationError(res));
 }
 
+function me(req, res, next) {
+    var userId = req.user._id;
+
+    User.findOneAsync({ _id: userId }, '-salt -password')
+        .then(function(user){ // don't ever give out the password or salt
+            if (!user) {
+                return res.status(401).end();
+            }
+            res.json(user);
+        })
+        .catch(function(err){
+            next(err);
+        });
+}
+
 function show(req, res, next) {
     var userId = req.params.id;
 
@@ -93,6 +108,7 @@ module.exports = {
     create: create,
     show: show,
     destroy: destroy,
+    me: me,
     changePassword: changePassword,
     authCallback: authCallback
 }

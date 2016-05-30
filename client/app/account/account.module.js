@@ -3,7 +3,8 @@
 
     angular
         .module('app.account', [
-            'ngCookies'
+            'app.oauthButtons',
+            'app.auth'
         ]);
 })();
 

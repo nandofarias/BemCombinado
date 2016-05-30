@@ -1,3 +1,9 @@
-<div>
-    <h3>teste</h3>
-</div>
+<oauth-buttons></oauth-buttons>
+<form ng-submit="vm.login()">
+    <label for="email">Email:</label>
+    <input type="text" ng-model="vm.user.email" id="email"/>
+    <label for="password">Senha:</label>
+    <input type="password" ng-model="vm.user.password" id="password"/>
+
+    <input type="submit" value="Cadastrar"/>
+</form>
