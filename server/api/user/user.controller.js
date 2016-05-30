@@ -33,10 +33,10 @@ function create(req, res, next) {
     newUser.role = 'user';
     newUser.saveAsync()
         .then((user) => {
-            var access_token = jwt.sign({ _id: user._id, role: user.role}, config.secrets.session, {
+            var token = jwt.sign({ _id: user._id, role: user.role}, config.secrets.session, {
                 expiresIn: 60 * 60 * 5
             });
-            res.json({ access_token });
+            res.json({ token });
         })
         .catch(validationError(res));
 }
