@@ -127,7 +127,7 @@ form {
   form input[type=submit] {
     background-color: #2980B9;
     color: white;
-    margin: 1rem 0 2rem;
+    margin: 1rem 0;
     border: none;
       border-radius: 0.333rem; }
   form input[type=submit]:hover {
@@ -199,11 +199,11 @@ section {
         padding: 6rem 0rem 2rem; } }
   #hero form {
     margin: 3rem auto;
-    max-width: 30rem; }
+    width: 30rem; }
     @media only screen and (max-width: 46rem) {
       #hero form {
         margin: 0 auto;
-        max-width: 85%; } }
+        width: 85%; } }
     #hero form i {
       position: absolute;
       height: 1.2rem;
