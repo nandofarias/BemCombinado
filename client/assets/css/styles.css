@@ -37,7 +37,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: "";
+  content: '';
   content: none; }
 
 table {
@@ -111,8 +111,30 @@ p {
     p {
       font-size: 0.933rem; } }
 
+form {
+  width: 55%;
+  margin: 1rem auto; }
+  form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    font-size: 0.933rem; }
+  form input:not([type=submit]) {
+    color: #4A4A4A;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+      border-radius: 0.333rem; }
+  form input[type=submit] {
+    background-color: #2980B9;
+    color: white;
+    margin: 1rem 0 2rem;
+    border: none;
+      border-radius: 0.333rem; }
+  form input[type=submit]:hover {
+    background-color: #203d69; }
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
@@ -281,27 +303,6 @@ section {
       #join-taskers .form-taskers {
         margin: 2rem auto;
         padding: 1rem 0; } }
-    #join-taskers .form-taskers form {
-      width: 55%;
-      margin: 1rem auto; }
-      #join-taskers .form-taskers form input {
-        width: 100%;
-        padding: 0.5rem 0;
-        font-size: 0.933rem;
-        text-align: center; }
-      #join-taskers .form-taskers form input:not([type=submit]) {
-        color: #4A4A4A;
-        margin: 1rem 0;
-        border: 1px solid #ccc;
-          border-radius: 0.333rem; }
-      #join-taskers .form-taskers form input[type=submit] {
-        background-color: #2980B9;
-        color: white;
-        margin: 1rem 0 2rem;
-        border: none;
-          border-radius: 0.333rem; }
-      #join-taskers .form-taskers form input[type=submit]:hover {
-        opacity: 0.4; }
   #join-taskers ul {
     display: inline-block;
     color: white;

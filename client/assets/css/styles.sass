@@ -4,9 +4,10 @@
     Date: 23/05/2016
 
 //  Imports
-@import "css/reset"
-@import "css/colors"
-@import "css/typography"
+@import "reset"
+@import "colors"
+@import "typography"
+@import "form"
     
 
 // Media Queries
@@ -186,31 +187,7 @@ section
         @media #{$med}
             margin: 2rem auto
             padding: 1rem 0
-            
-        form
-            width: 55%
-            margin: 1rem auto
-            input
-                width: 100%
-                padding: 0.5rem 0
-                font:
-                    size: 0.933rem
-                text-align: center
-                
-            input:not([type=submit])
-                color: $Text
-                margin: 1rem 0
-                border: 1px solid #ccc
-                    radius: 0.333rem
-                
-            input[type=submit]
-                background-color: $Blue
-                color: white
-                margin: 1rem 0 2rem
-                border: none
-                    radius: 0.333rem
-            input[type=submit]:hover
-                opacity: 0.4
+
 
     ul
         display: inline-block

@@ -1,6 +1,9 @@
+'use strict';
+
 var gulp = require('gulp');
 var nodemon = require('nodemon');
 var env = require('gulp-env');
+var sass = require('gulp-sass');
 
 gulp.task('nodemon', function() {
     nodemon({
@@ -24,4 +27,14 @@ gulp.task('set-env', function () {
     })
 });
 
-gulp.task('default', ['set-env', 'nodemon'])
+gulp.task('sass', function () {
+    return gulp.src('client/assets/css/styles.sass')
+        .pipe(sass())
+        .pipe(gulp.dest('client/assets/css'));
+});
+
+gulp.task('sass:watch', function () {
+    gulp.watch('client/assets/css/*.sass', ['sass']);
+});
+
+gulp.task('default', ['set-env', 'nodemon', 'sass:watch']);

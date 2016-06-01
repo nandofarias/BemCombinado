@@ -1,0 +1,26 @@
+@import "colors"
+
+form
+  width: 55%
+  margin: 1rem auto
+  input
+    width: 100%
+    box-sizing: border-box
+    padding: 0.5rem 1rem
+    font:
+      size: 0.933rem
+
+  input:not([type=submit])
+    color: $Text
+    margin: 1rem 0
+    border: 1px solid #ccc
+      radius: 0.333rem
+
+  input[type=submit]
+    background-color: $Blue
+    color: white
+    margin: 1rem 0 2rem
+    border: none
+      radius: 0.333rem
+  input[type=submit]:hover
+    background-color: $DarkBlue

@@ -26,7 +26,8 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-env": "^0.4.0",
-    "gulp-nodemon": "^2.0.7"
+    "gulp-nodemon": "^2.0.7",
+    "gulp-sass": "^2.3.1"
   },
   "dependencies": {
     "bluebird": "^3.4.0",
