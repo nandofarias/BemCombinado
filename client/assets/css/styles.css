@@ -171,7 +171,7 @@ header {
         float: none;
         width: 100%;
         padding: 1rem 0rem; } }
-    header nav li + li a:before {
+    header nav li + li:before {
       content: " | ";
       padding: 0 1rem; }
     header nav li {
