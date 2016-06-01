@@ -75,8 +75,8 @@
     <div class="form-taskers">
         <h4>Conheça já a melhor rede colaborativa de serviços</h4>
         <form ng-submit="vm.signup()">
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="Email">
+            <input ng-model="vm.user.name" type="text" placeholder="Nome">
+            <input ng-model="vm.user.email" type="email" placeholder="Email">
             <input type="submit" value="Cadastre-me">
         </form>
     </div>

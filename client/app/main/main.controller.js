@@ -5,10 +5,10 @@
         .module('app.main')
         .controller('mainController', mainController);
 
-    mainController.$inject = ['ngDialog'];
+    mainController.$inject = ['ngDialog', '$state'];
 
     /* @ngInject */
-    function mainController(ngDialog) {
+    function mainController(ngDialog, $state) {
         var vm = this;
         vm.title = 'mainController';
 
@@ -27,13 +27,8 @@
                     template: 'app/account/signup/signup.html',
                     className: 'ngdialog-theme-plain',
                     controller: 'signupController',
-                    controllerAs: 'vm'
-                })
-                .then(function (user) {
-                    //$state.go('main');
-                })
-                .catch(function (err) {
-                    //console.error(err);
+                    controllerAs: 'vm',
+                    data: vm.user
                 });
         }
     }

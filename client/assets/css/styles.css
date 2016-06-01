@@ -145,10 +145,6 @@ header {
   z-index: 10;
   padding: 2rem 2rem;
   width: 100%; }
-  header:after {
-    content: "";
-    display: table;
-    clear: both; }
   header a, header nav {
     display: inline-block; }
   header > a {
@@ -333,6 +329,25 @@ section {
       #partner img {
         width: 30%;
         height: 30%; } }
+
+oauth-buttons {
+  display: block; }
+  oauth-buttons button {
+    display: block;
+    width: 55%;
+    padding: 0.5rem 1rem;
+    font-size: 0.933rem;
+    color: white;
+    margin: 1rem auto;
+    border: none;
+      border-radius: 0.333rem;
+    text-decoration: none; }
+  oauth-buttons .btn-facebook {
+    background-color: #3B5998; }
+  oauth-buttons .btn-google {
+    background-color: #DD4B39; }
+  oauth-buttons .btn-twitter {
+    background-color: #55ACEE; }
 
 footer {
   background: #424242; }

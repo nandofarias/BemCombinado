@@ -8,7 +8,7 @@
         .run(appRun);
 
     /* @ngInject */
-    function appRun(routerHelper, $rootScope) {
+    function appRun(routerHelper) {
         routerHelper.configureStates(getStates());
     }
 

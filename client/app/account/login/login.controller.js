@@ -26,12 +26,10 @@
                 password: vm.user.password
             })
                 .then(function(user) {
-                    vm.user = user;
-                    $scope.confirm(vm.user);
-                    $state.go('main', {}, {reload: true});
+                    $scope.confirm();
                 })
                 .catch(function(err) {
-                    console.log(err);
+                    vm.error = err;
                 });
 
         }

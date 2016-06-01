@@ -18,6 +18,13 @@
         function activate() {
             vm.user = {};
             vm.register = register;
+            if($scope.hasOwnProperty('ngDialogData')){
+                vm.user.name = $scope.ngDialogData.name;
+            }
+            if($scope.hasOwnProperty('ngDialogData')){
+                vm.user.email = $scope.ngDialogData.email;
+            }
+
         }
 
         function register() {
@@ -27,19 +34,12 @@
                 password: vm.user.password
             })
                 .then(function(user) {
-                    vm.user = user;
-                    $scope.confirm(vm.user);
-                    $state.go('main', {}, {reload: true});
+                    $scope.confirm();
                 })
                 .catch(function(err) {
                     err = err.data;
-                    angular.forEach(err.errors, function (error, field) {
-                        //form[field].$setValidity('mongoose', false);
-                        //vm.errors[field] = error.message;
-                    });
+                    vm.errors = err.errors;
                 });
-
-
         }
     }
 

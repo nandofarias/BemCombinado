@@ -5,10 +5,10 @@
         .module('app.auth')
         .factory('Auth', AuthService);
 
-    AuthService.$inject = ['$location', '$http', '$cookies', '$q', 'appConfig', 'Util', 'User'];
+    AuthService.$inject = ['$location', '$http', '$cookies', '$q', 'appConfig', 'Util', 'User', '$rootScope'];
 
     /* @ngInject */
-    function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
+    function AuthService($location, $http, $cookies, $q, appConfig, Util, User, $rootScope) {
         var safeCb = Util.safeCb;
         var currentUser = {};
         var userRoles = appConfig.userRoles || [];
@@ -40,6 +40,7 @@
                 .then(function(res) {
                     $cookies.put('token', res.data.token);
                     currentUser = User.get();
+                    $rootScope.$emit('login', {});
                     return currentUser.$promise;
                 })
                 .then(function(user) {
@@ -63,6 +64,7 @@
                 function(data) {
                     $cookies.put('token', data.token);
                     currentUser = User.get();
+                    $rootScope.$emit('login', {});
                     return safeCb(callback)(null, user);
                 },
                 function(err) {

@@ -5,10 +5,10 @@
         .module('app')
         .directive('header', header);
 
-    header.$inject = ['ngDialog', 'Auth', '$state'];
+    header.$inject = ['ngDialog', 'Auth', '$state', '$rootScope'];
 
     /* @ngInject */
-    function header(ngDialog, Auth, $state) {
+    function header(ngDialog, Auth, $state, $rootScope) {
         var directive = {
             bindToController: true,
             controller: headerController,
@@ -25,12 +25,16 @@
         }
     }
 
-    headerController.$inject = ['ngDialog', 'Auth', '$state'];
+    headerController.$inject = ['ngDialog', 'Auth', '$state', '$rootScope'];
 
     /* @ngInject */
-    function headerController(ngDialog, Auth, $state) {
+    function headerController(ngDialog, Auth, $state, $rootScope) {
         var vm = this;
         vm.title = 'headerController';
+
+        $rootScope.$on('login', function (event, args) {
+            vm.user = Auth.getCurrentUser();
+        });
 
         activate();
 
@@ -51,12 +55,6 @@
                     className: 'ngdialog-theme-plain',
                     controller: 'signupController',
                     controllerAs: 'vm'
-                })
-                .then(function (user) {
-                    vm.user = Auth.getCurrentUser();
-                })
-                .catch(function (err) {
-                    //console.error(err);
                 });
         }
 
@@ -67,12 +65,6 @@
                     className: 'ngdialog-theme-plain',
                     controller: 'loginController',
                     controllerAs: 'vm'
-                })
-                .then(function (user) {
-                    vm.user = Auth.getCurrentUser();
-                })
-                .catch(function (err) {
-                    //console.error(err);
                 });
         }
         
