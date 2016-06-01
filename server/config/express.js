@@ -11,8 +11,10 @@ var favicon        = require('serve-favicon');
 var cookieParser   = require('cookie-parser');
 var passport       = require('passport');
 var config         = require('./environment');
-
-
+var session        = require('express-session');
+var connectMongo   = require('connect-mongo');
+var mongoose       = require('mongoose');
+var mongoStore = connectMongo(session);
 
 
 module.exports = function(app) {
@@ -28,6 +30,17 @@ module.exports = function(app) {
     app.use(express.static(path.join(config.root, 'client')));
     app.use(cookieParser());
     app.use(passport.initialize());
+
+    //this is important to use twitter OAuth
+    app.use(session({
+        secret: config.secrets.session,
+        saveUninitialized: true,
+        resave: false,
+        store: new mongoStore({
+            mongooseConnection: mongoose.connection,
+            db: 'teste'
+        })
+    }));
 
     if('development' === env) {
         app.use(morgan('dev'));

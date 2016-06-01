@@ -26,8 +26,10 @@
                 email: vm.user.email,
                 password: vm.user.password
             })
-                .then(function() {
-                    $state.go('main');
+                .then(function(user) {
+                    vm.user = user;
+                    $scope.confirm(vm.user);
+                    $state.go('main', {}, {reload: true});
                 })
                 .catch(function(err) {
                     err = err.data;
@@ -36,7 +38,7 @@
                         //vm.errors[field] = error.message;
                     });
                 });
-            $scope.closeThisDialog('close');
+
 
         }
     }

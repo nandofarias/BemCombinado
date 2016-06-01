@@ -19,8 +19,7 @@ gulp.task('set-env', function () {
             TWITTER_SECRET: 'TgrakP9qZ0GIIzbTRpOFOOVonM3DQDbNosypYqT3EtoiPYedpJ',
             GOOGLE_ID: '218161342051-qprqo3ssbp07k2897cs8toifod6ujvnd.apps.googleusercontent.com',
             GOOGLE_SECRET:'QSaer7Ghx6t9U2GiXXw4ay-W',
-            DOMAIN:'http://localhost:3000',
-            PORT: 3000
+            DOMAIN:'http://localhost:3000'
         }
     })
 });

@@ -19,8 +19,16 @@ $ npm install
 $ bower install
 ```
 
-#### 4. Type gulp and see the magic happens (this step has not been implemented yet)
+#### 4. Type gulp and see the magic happens
 
 ```sh
 $ gulp
+```
+
+
+
+OR ----
+Just install bower globally and type:
+```sh
+$ npm start
 ```

@@ -25,13 +25,15 @@
                 email: vm.user.email,
                 password: vm.user.password
             })
-                .then(function() {
-                    $state.go('main');
+                .then(function(user) {
+                    vm.user = user;
+                    $scope.confirm(vm.user);
+                    $state.go('main', {}, {reload: true});
                 })
                 .catch(function(err) {
                     console.log(err);
                 });
-            $scope.closeThisDialog('close');
+
         }
     }
 
