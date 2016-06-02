@@ -3,14 +3,14 @@
 
     angular
         .module('app.tasks')
-        .controller('dashboardController', dashboardController);
+        .controller('taskController', taskController);
 
-    dashboardController.$inject = [];
+    taskController.$inject = [];
 
     /* @ngInject */
-    function dashboardController() {
+    function taskController() {
         var vm = this;
-        vm.title = 'dashboardController';
+        vm.title = 'taskController';
 
         activate();
 

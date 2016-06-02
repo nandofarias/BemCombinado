@@ -6,7 +6,8 @@
             'ui.router',
             'app.auth',
             'app.main',
-            'app.account'
+            'app.account',
+            'app.tasks'
 
         ]);
 

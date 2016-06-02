@@ -354,3 +354,7 @@ footer {
   footer p {
     padding: 2rem;
     color: white; }
+
+#header {
+  height: 4rem;
+  background: #424242; }

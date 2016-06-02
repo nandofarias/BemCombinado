@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.main',[
+        .module('app.tasks',[
             'ngDialog'
         ])
         .run(appRun);
