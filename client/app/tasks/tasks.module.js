@@ -3,7 +3,8 @@
 
     angular
         .module('app.tasks',[
-            'ngDialog'
+            'ngDialog',
+            'ngResource'
         ])
         .run(appRun);
 
@@ -27,7 +28,7 @@
                 state: 'dashboard',
                 config: {
                     url: '/dashboard',
-                    templateUrl: 'app/main/dashboard/dashboard.html',
+                    templateUrl: 'app/tasks/dashboard/dashboard.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm'
                 }

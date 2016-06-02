@@ -170,6 +170,9 @@ header {
     header nav li + li:before {
       content: " | ";
       padding: 0 1rem; }
+      @media only screen and (max-width: 46rem) {
+        header nav li + li:before {
+          padding: 0 0.5rem; } }
     header nav li {
       display: inline; }
       header nav li a {
@@ -356,5 +359,5 @@ footer {
     color: white; }
 
 #header {
-  height: 4rem;
+  height: 6rem;
   background: #424242; }

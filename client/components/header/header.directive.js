@@ -44,6 +44,7 @@
             vm.signup = signup;
             vm.login = login;
             vm.myOrders = myOrders;
+            vm.dashboard = dashboard;
             vm.logout = logout;
             vm.user = Auth.getCurrentUser();
         }
@@ -70,6 +71,10 @@
         
         function myOrders() {
             $state.go('myOrders');
+        }
+
+        function dashboard() {
+            $state.go('dashboard');
         }
         
         function logout() {

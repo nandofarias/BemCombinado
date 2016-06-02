@@ -18,7 +18,7 @@
 
         function activate() {
             vm.signup = signup;
-            
+            vm.askTask = askTask;
         }
 
         function signup(){
@@ -29,6 +29,16 @@
                     controller: 'signupController',
                     controllerAs: 'vm',
                     data: vm.user
+                });
+        }
+
+        function askTask() {
+            ngDialog.openConfirm(
+                {
+                    template: 'app/tasks/task/task.html',
+                    className: 'ngdialog-theme-plain',
+                    controller: 'taskController',
+                    controllerAs: 'vm'
                 });
         }
     }

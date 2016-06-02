@@ -50,7 +50,9 @@ header
         padding-right: 4rem
         li + li:before
             content: " | "
-            padding: 0 1rem 
+            padding: 0 1rem
+            @media #{$sml}
+                padding: 0 0.5rem
         li
             display: inline
             a
@@ -249,5 +251,5 @@ footer
 
 
 #header
-    height: 4rem
+    height: 6rem
     background: $DarkGrey
