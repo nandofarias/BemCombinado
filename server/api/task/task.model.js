@@ -10,6 +10,7 @@ var TaskSchema = new Schema({
     when: Date,
     value: Number,
     user: {},
+    candidates: [],
     created_at: Date,
     updated_at: Date
 });

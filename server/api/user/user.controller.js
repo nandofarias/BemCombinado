@@ -8,7 +8,19 @@ var jwt = require('jsonwebtoken');
 function validationError(res, statusCode) {
     statusCode = statusCode || 422;
     return function(err) {
-        res.status(statusCode).json(err);
+        console.log(err);
+        var error = err;
+        if(!err.hasOwnProperty("errors")){
+            error = {
+                errors: [
+                    {
+                        message: err.message
+                    }
+                ]
+            }
+        }
+
+        res.status(statusCode).json(error);
     }
 }
 

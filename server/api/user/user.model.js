@@ -17,7 +17,9 @@ var UserSchema = new Schema({
         type: String,
         default: 'user'
     },
-    password: String,
+    password: {
+        type: String
+    },
     provider: String,
     salt: String,
     facebook: {},
@@ -32,6 +34,7 @@ var UserSchema = new Schema({
         default: Date.now
     }
 });
+
 
 UserSchema.virtual('profile')
     .get(function() {
@@ -49,27 +52,13 @@ UserSchema.virtual('token')
         }
     });
 
-UserSchema.path('email')
-    .validate(function(email) {
-        if(AUTH_TYPES.indexOf(this.provider) !== -1){
-            return true;
-        }
-        return email.length;
-    }, 'Email não pode estar em branco');
 
-UserSchema.path('password')
-    .validate(function(password){
-        if(AUTH_TYPES.indexOf(this.provider) !== -1){
-            return true;
-        }
-        return password.length;
-    },'Senha não pode estar em branco');
 
 UserSchema.path('email')
     .validate(function(value, respond) {
         var self = this;
         return this.constructor.findOneAsync({ email: value })
-            .then((user) => {
+            .then(function (user) {
                 if(user) {
                     if(self.id === user.id){
                         return respond(true);
@@ -78,7 +67,7 @@ UserSchema.path('email')
                 }
                 return respond(true);
             })
-            .catch((err) => {
+            .catch(function (err) {
                 throw err;
             });
     }, 'Email já está sendo utilizado.');
@@ -97,12 +86,12 @@ UserSchema.pre('save', function(next){
         this.created_at = now;
     }
 
-    if(!this.isModified('password')){
-        return next();
+    if(!validatePresenceOf(this.email) && AUTH_TYPES.indexOf(this.provider) === -1){
+        next(new Error('Email não pode estar em branco'));
     }
 
     if(!validatePresenceOf(this.password) && AUTH_TYPES.indexOf(this.provider) === -1){
-        next(new Error('Senha inválida'));
+        next(new Error('Senha não pode estar em branco'));
     }
 
     this.makeSalt((saltErr, salt) => {
