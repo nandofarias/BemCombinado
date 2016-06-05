@@ -19,13 +19,14 @@
                     params: {
                         controller: 'password'
                     }
-            },
-            get: {
-                method: 'GET',
-                params: {
-                    id: 'me'
+                },
+                get: {
+                    method: 'GET',
+                    params: {
+                        id: 'me'
+                    }
                 }
             }
-        });
+        );
     }
 })();

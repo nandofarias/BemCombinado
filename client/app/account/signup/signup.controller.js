@@ -5,10 +5,10 @@
         .module('app.account')
         .controller('signupController', signupController);
 
-    signupController.$inject = ['Auth', '$state', '$scope'];
+    signupController.$inject = ['Auth', '$scope'];
 
     /* @ngInject */
-    function signupController(Auth, $state, $scope) {
+    function signupController(Auth, $scope) {
         var vm = this;
 
         activate();

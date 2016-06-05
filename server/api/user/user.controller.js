@@ -3,40 +3,14 @@
 var User = require('./user.model');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
-
-
-function validationError(res, statusCode) {
-    statusCode = statusCode || 422;
-    return function(err) {
-        console.log(err);
-        var error = err;
-        if(!err.hasOwnProperty("errors")){
-            error = {
-                errors: [
-                    {
-                        message: err.message
-                    }
-                ]
-            }
-        }
-
-        res.status(statusCode).json(error);
-    }
-}
-
-function handleError(res, statusCode) {
-    statusCode = statusCode || 500;
-    return function(err) {
-        res.status(statusCode).send(err);
-    };
-}
+var error = require('../../components/errors');
 
 function index(req, res) {
     User.findAsync({}, '-salt -password')
         .then((users) =>{
             res.status(200).json(users);
         })
-        .catch(handleError(res));
+        .catch(error.handleError(res));
 }
 
 function create(req, res, next) {
@@ -50,7 +24,7 @@ function create(req, res, next) {
             });
             res.json({ token });
         })
-        .catch(validationError(res));
+        .catch(error.validationError(res));
 }
 
 function me(req, res, next) {
@@ -61,10 +35,10 @@ function me(req, res, next) {
             if (!user) {
                 return res.status(401).end();
             }
-            res.json(user);
+            return res.json(user);
         })
         .catch(function(err){
-            next(err);
+            return error.handleError(res);
         });
 }
 
@@ -79,7 +53,7 @@ function show(req, res, next) {
             res.json(user.profile);
         })
         .catch((err) => {
-            next(err);
+            error.handleError(res);
         });
 }
 
@@ -88,7 +62,7 @@ function destroy(req, res) {
         .then(() => {
             res.status(204).end();
         })
-        .catch(handleError(res));
+        .catch(error.handleError(res));
 }
 
 function changePassword(req, res, next) {
@@ -104,7 +78,7 @@ function changePassword(req, res, next) {
                     .then(() => {
                         res.status(204).end();
                     })
-                    .catch(validationError(res));
+                    .catch(error.validationError(res));
             } else {
                 return res.status(403).end();
             }

@@ -1,10 +1,6 @@
-/**
- * Error responses
- */
-
 'use strict';
 
-module.exports[404] = function pageNotFound(req, res) {
+function pageNotFound(req, res) {
     var viewFilePath = '404';
     var statusCode = 404;
     var result = {
@@ -21,7 +17,7 @@ module.exports[404] = function pageNotFound(req, res) {
     });
 };
 
-module.exports[503] = function serviceUnavailable(req, res) {
+function serviceUnavailable(req, res) {
     var viewFilePath = '503';
     var statusCode = 503;
     var result = {
@@ -37,3 +33,37 @@ module.exports[503] = function serviceUnavailable(req, res) {
         res.send(html);
     });
 };
+
+
+function validationError(res, statusCode) {
+    statusCode = statusCode || 422;
+    return function(err) {
+        console.log(err);
+        var error = err;
+        if(!err.hasOwnProperty("errors")){
+            error = {
+                errors: [
+                    {
+                        message: err.message
+                    }
+                ]
+            }
+        }
+
+        res.status(statusCode).json(error);
+    }
+}
+
+function handleError(res, statusCode) {
+    statusCode = statusCode || 500;
+    return function(err) {
+        res.status(statusCode).send(err);
+    };
+}
+
+module.exports = {
+    404: pageNotFound,
+    500: serviceUnavailable,
+    validationError: validationError,
+    handleError: handleError
+}

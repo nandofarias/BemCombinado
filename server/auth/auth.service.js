@@ -8,31 +8,31 @@ var compose = require('composable-middleware');
 var User = require('../api/user/user.model');
 
 var validateJwt = expressJwt({
-   secret: config.secrets.session
+    secret: config.secrets.session
 });
 
 
 function isAuthenticated() {
     return compose()
-        .use((req, res, next) => {
+            .use((req, res, next) => {
             if(req.query && req.query.hasOwnProperty('access_token')){
-                req.headers.authorization = 'Bearer ' + req.query.access_token;
-            }
-            validateJwt(req, res, next);
-        })
-        .use((req, res, next) => {
-            User.findByIdAsync(req.user._id)
-                .then((user) => {
-                    if(!user){
-                        return res.status(401).end();
-                    }
-                    req.user = user;
-                    next();
-                })
-                .catch((err) => {
-                    next(err);
-                });
-        });
+        req.headers.authorization = 'Bearer ' + req.query.access_token;
+    }
+    validateJwt(req, res, next);
+})
+.use((req, res, next) => {
+        User.findByIdAsync(req.user._id)
+        .then((user) => {
+        if(!user){
+        return res.status(401).end();
+    }
+    req.user = user;
+    return next();
+})
+.catch((err) => {
+        return next(err);
+});
+});
 }
 
 
@@ -42,24 +42,24 @@ function hasRole(roleRequired) {
     }
 
     return compose()
-        .use(isAuthenticated())
-        .use((req, res, next) => {
+            .use(isAuthenticated())
+            .use((req, res, next) => {
             if( config.userRoles.indexOf(req.user.role) >=
-                config.userRoles.indexOf(roleRequired)) {
-                next();
-            } else {
-                res.status(403).send('Forbidden');
-            }
-        });
+        config.userRoles.indexOf(roleRequired)) {
+        next();
+    } else {
+        res.status(403).send('Forbidden');
+    }
+});
 }
 
 function signToken(id, role) {
     return jwt.sign({
-            _id: id,
-            role: role
-        }, config.secrets.session, {
-            expiresIn: 60 * 60 * 5
-        });
+        _id: id,
+        role: role
+    }, config.secrets.session, {
+        expiresIn: 60 * 60 * 5
+    });
 }
 
 function setTokenCookie(req, res) {

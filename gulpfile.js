@@ -1,3 +1,5 @@
+//gulpfile.js
+
 'use strict';
 
 var gulp = require('gulp');
@@ -20,9 +22,10 @@ gulp.task('set-env', function () {
             FACEBOOK_SECRET: '4301ae0ab11854cb567cdf3450b0ae90',
             TWITTER_ID: 'BDyX62NVaztgoJ2IRJ7vRNMWC',
             TWITTER_SECRET: 'TgrakP9qZ0GIIzbTRpOFOOVonM3DQDbNosypYqT3EtoiPYedpJ',
-            GOOGLE_ID: '218161342051-qprqo3ssbp07k2897cs8toifod6ujvnd.apps.googleusercontent.com',
-            GOOGLE_SECRET:'QSaer7Ghx6t9U2GiXXw4ay-W',
-            DOMAIN:'http://localhost:3000'
+            GOOGLE_ID: '391207094677-i5vkm5dejfbth9hpubm7pgu2a2f0e1at.apps.googleusercontent.com',
+            GOOGLE_SECRET:'dkv8B5ZlOmOCLJKE8Q1W6m0K',
+            DOMAIN:'http://localhost:3000',
+            MONGOLAB_URI:  'mongodb://application:reUtCxZBsdPLop1zO3ES0k@ds023373.mlab.com:23373/bemcombinado'
         }
     })
 });
