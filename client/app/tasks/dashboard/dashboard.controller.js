@@ -5,10 +5,10 @@
         .module('app.tasks')
         .controller('dashboardController', dashboardController);
 
-    dashboardController.$inject = [];
+    dashboardController.$inject = ['TaskService'];
 
     /* @ngInject */
-    function dashboardController() {
+    function dashboardController(TaskService) {
         var vm = this;
         vm.title = 'dashboardController';
 
@@ -17,7 +17,16 @@
         ////////////////
 
         function activate() {
-            
+
+            TaskService.get(
+                function (data) {
+                    vm.tasks = data.tasks;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
+
         }
     }
 

@@ -114,12 +114,12 @@ p {
 form {
   width: 55%;
   margin: 1rem auto; }
-  form input {
+  form input, form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     font-size: 0.933rem; }
-  form input:not([type=submit]) {
+  form input:not([type=submit]), form textarea {
     color: #4A4A4A;
     margin: 1rem 0;
     border: 1px solid #ccc;

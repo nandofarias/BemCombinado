@@ -5,8 +5,10 @@
 
     <button ng-click="vm.askTask()">Realizar um pedido de tarefa</button>
 
+</section>
 
+<section id="tasks">
 
-
+    <p ng-repeat="task in vm.tasks">{{task.title}}</p>
 
 </section>

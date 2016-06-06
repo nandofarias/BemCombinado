@@ -5,10 +5,10 @@
         .module('app.tasks')
         .controller('ordersController', ordersController);
 
-    ordersController.$inject = ['ngDialog'];
+    ordersController.$inject = ['TaskService', 'ngDialog'];
 
     /* @ngInject */
-    function ordersController(ngDialog) {
+    function ordersController(TaskService, ngDialog) {
         var vm = this;
         vm.title = 'ordersController';
 
@@ -18,6 +18,14 @@
 
         function activate() {
             vm.askTask = askTask;
+            TaskService.mine(
+                function (data) {
+                    vm.tasks = data.tasks;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
         }
 
         function askTask() {
