@@ -18,6 +18,7 @@
 
         function activate() {
             vm.askTask = askTask;
+            vm.deactivate = deactivate;
             TaskService.mine(
                 function (data) {
                     vm.tasks = data.tasks;
@@ -36,6 +37,21 @@
                     controller: 'taskController',
                     controllerAs: 'vm'
                 });
+        }
+        
+        function deactivate(task) {
+            TaskService.deactivate(
+                {
+                    id: task._id
+                },
+                {},
+                function (data) {
+                    task.active = false;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
         }
     }
 

@@ -18,6 +18,8 @@
 
         function activate() {
 
+            vm.apply = apply;
+
             TaskService.get(
                 function (data) {
                     vm.tasks = data.tasks;
@@ -27,6 +29,19 @@
                 }
             );
 
+        }
+
+        function apply(task) {
+            TaskService.apply(
+                {id: task._id},
+                {},
+                function (data) {
+                    task.alreadyCandidate = true;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
         }
     }
 

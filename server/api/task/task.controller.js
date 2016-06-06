@@ -10,6 +10,7 @@ function create(req, res, next) {
     task.user = {};
     task.user.id = user._id;
     task.user.name = user.name;
+    task.user.email = user.email;
     task.user.phone = user.phone;
     task.active = true;
 
@@ -42,7 +43,7 @@ function getByUser(req, res, next) {
 function getAll(req, res, next) {
     Task.findAsync({
         active: true
-    }).then((arrayTasks) => {
+    }, '-candidates -user.email -user.id').then((arrayTasks) => {
         var response = {
             tasks: arrayTasks
         }
@@ -52,8 +53,47 @@ function getAll(req, res, next) {
     });
 }
 
+function deactivate(req, res, next) {
+    var taskId = req.params.id;
+    Task.findByIdAsync(taskId)
+        .then((task) => {
+                task.active = false;
+                return task.saveAsync()
+                    .then(() => {
+                        res.status(204).end();
+                    })
+                    .catch(error.validationError(res));
+
+        });
+}
+
+function apply(req, res, next) {
+    var taskId = req.params.id;
+    var user = req.user;
+
+    var candidate = {};
+    candidate.id = user._id;
+    candidate.name = user.name;
+    candidate.email = user.email;
+    candidate.phone = user.phone;
+    candidate.active = true;
+
+    Task.findByIdAsync(taskId)
+        .then((task) => {
+            task.candidates.push(candidate);
+            return task.saveAsync()
+                .then(() => {
+                    res.status(204).end();
+                })
+                .catch(error.validationError(res));
+
+        });
+}
+
 module.exports = {
     create: create,
     getByUser: getByUser,
-    getAll: getAll
+    getAll: getAll,
+    deactivate: deactivate,
+    apply: apply
 }

@@ -103,7 +103,11 @@
 
         function isLoggedIn(callback) {
             if (arguments.length === 0) {
-                return currentUser.hasOwnProperty('role');
+
+                Auth.getCurrentUser(function (user) {
+                    return user.hasOwnProperty('role');
+                })
+
             }
 
             return Auth.getCurrentUser(null)

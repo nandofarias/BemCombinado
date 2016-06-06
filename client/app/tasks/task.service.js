@@ -11,14 +11,31 @@
         /* @ngInject */
     function TaskService($resource) {
 
-        var service = $resource('/api/tasks/:controller', {},{
-            mine: {
-                method: 'GET',
-                params: {
-                    controller: 'mine'
+        var service = $resource('/api/tasks/:id/:controller',
+            {
+                id: '@_id'
+            },
+            {
+                mine: {
+                    method: 'GET',
+                    params: {
+                        id: 'mine'
+                    }
+                },
+                deactivate: {
+                    method: 'PUT',
+                    params: {
+                        controller: 'deactivate'
+                    }
+                },
+                apply: {
+                    method: 'PUT',
+                    params: {
+                        controller: 'apply'
+                    }
                 }
             }
-        });
+        );
         return service;
     }
 

@@ -9,6 +9,11 @@
 
 <section id="tasks">
 
-    <p ng-repeat="task in vm.tasks">{{task.title}}</p>
+    <div ng-repeat="task in vm.tasks">
+        <h4>{{task.title}}</h4>
+        <p>{{task.details}}</p>
+        <button ng-click="vm.deactivate(task)" ng-show="task.active">Desativar tarefa</button>
+        <p ng-hide="task.active">Tarefa Desativada</p>
+    </div>
 
 </section>

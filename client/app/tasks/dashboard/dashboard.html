@@ -3,6 +3,11 @@
 
 <section id="tasks">
 
-    <p ng-repeat="task in vm.tasks">{{task.title}}</p>
+    <div ng-repeat="task in vm.tasks">
+        <h4>{{task.title}}</h4>
+        <p>{{task.details}}</p>
+        <button ng-click="vm.apply(task)" ng-hide="task.alreadyCandidate">Quero me candidatar</button>
+
+    </div>
 
 </section>
