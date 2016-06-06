@@ -22,6 +22,7 @@ module.exports = function(app) {
 
     app.set('views', config.root + '/server/views');
     app.set('view engine', 'html');
+    app.engine('html', require('ejs').renderFile);
     app.use(compression());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
