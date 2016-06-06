@@ -5,10 +5,10 @@
         .module('app.account')
         .controller('loginController', loginController);
 
-    loginController.$inject = ['Auth', '$state', '$scope'];
+    loginController.$inject = ['Auth', '$scope'];
 
     /* @ngInject */
-    function loginController(Auth, $state,$scope) {
+    function loginController(Auth, $scope) {
         var vm = this;
         vm.title = 'loginController';
 

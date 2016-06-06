@@ -36,7 +36,11 @@
                     className: 'ngdialog-theme-plain',
                     controller: 'taskController',
                     controllerAs: 'vm'
+                })
+                .then(function (task) {
+                    vm.tasks.push(task);
                 });
+
         }
         
         function deactivate(task) {

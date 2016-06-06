@@ -33,7 +33,10 @@
         vm.title = 'headerController';
 
         $rootScope.$on('login', function (event, args) {
-            vm.isLoggedIn = Auth.isLoggedIn();
+            Auth.isLoggedIn()
+                .then(function (flag) {
+                    vm.isLoggedIn = flag;
+                });
         });
 
         activate();
@@ -46,7 +49,10 @@
             vm.myOrders = myOrders;
             vm.dashboard = dashboard;
             vm.logout = logout;
-            vm.isLoggedIn = Auth.isLoggedIn();
+            Auth.isLoggedIn()
+                .then(function (flag) {
+                    vm.isLoggedIn = flag;
+                });
         }
 
         function signup(){
@@ -79,7 +85,10 @@
         
         function logout() {
             Auth.logout();
-            vm.isLoggedIn = Auth.isLoggedIn();
+            Auth.isLoggedIn()
+                .then(function (flag) {
+                    vm.isLoggedIn = flag;
+                });
         }
     }
 

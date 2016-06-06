@@ -5,10 +5,10 @@
         .module('app.tasks')
         .controller('dashboardController', dashboardController);
 
-    dashboardController.$inject = ['TaskService'];
+    dashboardController.$inject = ['Auth', 'TaskService'];
 
     /* @ngInject */
-    function dashboardController(TaskService) {
+    function dashboardController(Auth, TaskService) {
         var vm = this;
         vm.title = 'dashboardController';
 

@@ -31,6 +31,7 @@
                     data: vm.user
                 });
         }
+        
 
         function askTask() {
             ngDialog.openConfirm(
@@ -41,5 +42,7 @@
                     controllerAs: 'vm'
                 });
         }
+        
+        
     }
 })();
