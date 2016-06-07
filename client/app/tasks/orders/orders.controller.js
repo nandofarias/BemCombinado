@@ -5,10 +5,10 @@
         .module('app.tasks')
         .controller('ordersController', ordersController);
 
-    ordersController.$inject = ['ngDialog'];
+    ordersController.$inject = ['TaskService', 'ngDialog'];
 
     /* @ngInject */
-    function ordersController(ngDialog) {
+    function ordersController(TaskService, ngDialog) {
         var vm = this;
         vm.title = 'ordersController';
 
@@ -18,6 +18,15 @@
 
         function activate() {
             vm.askTask = askTask;
+            vm.deactivate = deactivate;
+            TaskService.mine(
+                function (data) {
+                    vm.tasks = data.tasks;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
         }
 
         function askTask() {
@@ -27,7 +36,26 @@
                     className: 'ngdialog-theme-plain',
                     controller: 'taskController',
                     controllerAs: 'vm'
+                })
+                .then(function (task) {
+                    vm.tasks.push(task);
                 });
+
+        }
+        
+        function deactivate(task) {
+            TaskService.deactivate(
+                {
+                    id: task._id
+                },
+                {},
+                function (data) {
+                    task.active = false;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
         }
     }
 

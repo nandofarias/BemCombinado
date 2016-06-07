@@ -114,12 +114,12 @@ p {
 form {
   width: 55%;
   margin: 1rem auto; }
-  form input {
+  form input, form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     font-size: 0.933rem; }
-  form input:not([type=submit]) {
+  form input:not([type=submit]), form textarea {
     color: #4A4A4A;
     margin: 1rem 0;
     border: 1px solid #ccc;
@@ -132,6 +132,20 @@ form {
       border-radius: 0.333rem; }
   form input[type=submit]:hover {
     background-color: #203d69; }
+
+.blue-button {
+  background-color: #2980B9;
+  color: white;
+  margin: 1rem 0;
+  border: none;
+    border-radius: 0.333rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  font-size: 0.933rem; }
+
+.blue-button:hover {
+  background-color: #203d69; }
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -206,22 +220,37 @@ section {
     #hero form i {
       position: absolute;
       height: 1.2rem;
-      padding: 0.45rem 1rem;
-      color: #4A4A4A; }
+      padding: 0.5rem 1rem;
+      color: #4A4A4A;
+      z-index: 10; }
       @media only screen and (max-width: 46rem) {
         #hero form i {
-          padding: 0.45rem 0.55rem; } }
-    #hero form input[type="text"] {
-      width: 100%;
-      display: block;
-      border: none;
-        border-radius: 0.333rem;
-      padding: 0.5rem 0rem 0.5rem 3rem;
-      color: #4A4A4A;
-      font-size: 0.75rem; }
-      @media only screen and (max-width: 46rem) {
-        #hero form input[type="text"] {
-          padding: 0.5rem 0rem 0.5rem 2rem; } }
+          padding: 0.5rem 0.55rem; } }
+    #hero form .input-dropdown {
+      width: 100%; }
+      #hero form .input-dropdown input[type='text'] {
+        margin: 0;
+        width: 100%;
+        display: block;
+        border: none;
+          border-radius: 0.333rem;
+        padding: 0.5rem 0rem 0.5rem 3rem;
+        color: #4A4A4A;
+        font-size: 0.75rem; }
+        @media only screen and (max-width: 46rem) {
+          #hero form .input-dropdown input[type='text'] {
+            padding: 0.5rem 0rem 0.5rem 2rem; } }
+  #hero .category-examples {
+    margin: 0 auto;
+    text-align: center; }
+    #hero .category-examples li {
+      display: inline;
+      color: white;
+      text-align: center;
+      margin: 0 auto;
+      font-weight: 600;
+      font-size: 1.125rem;
+      padding: 0.5rem; }
 
 #how-it-works {
   display: flex;
@@ -361,3 +390,23 @@ footer {
 #header {
   height: 6rem;
   background: #424242; }
+
+#tasks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center; }
+  #tasks .task {
+    border: none;
+      border-radius: 0.333rem;
+    width: 27%;
+    margin: 2% 3%;
+    vertical-align: top;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 2rem; }
+    @media only screen and (max-width: 60rem) {
+      #tasks .task {
+        width: 40%; } }
+    @media only screen and (max-width: 46rem) {
+      #tasks .task {
+        width: 90%; } }

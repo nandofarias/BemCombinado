@@ -9,6 +9,8 @@ var router = express.Router();
 router.post('/', auth.isAuthenticated(), controller.create);
 router.get('/mine', auth.isAuthenticated(), controller.getByUser);
 router.get('/', auth.isAuthenticated(), controller.getAll);
+router.put('/:id/deactivate', auth.isAuthenticated(), controller.deactivate);
+router.put('/:id/apply', auth.isAuthenticated(), controller.apply);
 
 
 module.exports = router;

@@ -4,7 +4,8 @@
     angular
         .module('app.tasks',[
             'ngDialog',
-            'ngResource'
+            'ngResource',
+            'app.auth'
         ])
         .run(appRun);
 

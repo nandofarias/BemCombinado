@@ -5,10 +5,10 @@
         .module('app.tasks')
         .controller('taskController', taskController);
 
-    taskController.$inject = ['TaskService', '$scope'];
+    taskController.$inject = ['Auth', 'TaskService', '$scope', 'ngDialog', '$state'];
 
     /* @ngInject */
-    function taskController(TaskService, $scope) {
+    function taskController(Auth, TaskService, $scope, ngDialog, $state) {
         var vm = this;
         vm.title = 'taskController';
 
@@ -19,18 +19,40 @@
         function activate() {
             vm.save = save;
             vm.task = {};
+
         }
         
         function save() {
-            TaskService.save(vm.task,
-            function (data) {
-                console.log(data);
-            },
-            function (err) {
-                console.log(err);
-            })
-            $scope.confirm();
+
+            Auth.isLoggedIn()
+                .then(function (flag) {
+                    if(flag){
+                        TaskService.save(vm.task,
+                            function (data) {
+                                $scope.confirm(data);
+                                $state.go('myOrders');
+                            },
+                            function (err) {
+                                console.log(err);
+                            });
+                    }else{
+                        signup();
+                    }
+                })
+
+
         }
+
+        function signup(){
+            ngDialog.openConfirm(
+                {
+                    template: 'app/account/signup/signup.html',
+                    className: 'ngdialog-theme-plain',
+                    controller: 'signupController',
+                    controllerAs: 'vm'
+                });
+        }
+        
     }
 
 })();

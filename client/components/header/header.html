@@ -1,11 +1,11 @@
 <a alt="BemCombinado.com" ui-sref="main" class="logo">BemCombinado.com</a>
-<nav ng-hide="vm.user._id">
+<nav ng-hide="vm.isLoggedIn">
     <ul>
-        <li><a href="#" ng-click="vm.signup()"><span>Cadastrar {{Auth.user._id}}</span></a></li>
-        <li><a href="#" ng-click="vm.login()"><span>Entrar {{vm.user._id}}</span></a></li>
+        <li><a href="#" ng-click="vm.signup()"><span>Cadastrar</span></a></li>
+        <li><a href="#" ng-click="vm.login()"><span>Entrar</span></a></li>
     </ul>
 </nav>
-<nav ng-show="vm.user._id">
+<nav ng-show="vm.isLoggedIn">
     <ul>
         <li><a href="#" ng-click="vm.dashboard()"><span>Tarefas</span></a></li>
         <li><a href="#" ng-click="vm.myOrders()"><span>Meus Pedidos</span></a></li>

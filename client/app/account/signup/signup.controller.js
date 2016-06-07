@@ -34,7 +34,7 @@
                 password: vm.user.password
             })
                 .then(function(user) {
-                    $scope.confirm();
+                    $scope.closeThisDialog();
                 })
                 .catch(function(err) {
                     err = err.data;
