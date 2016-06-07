@@ -3,18 +3,22 @@
 
 <section id="orders">
 
-    <button ng-click="vm.askTask()">Realizar um pedido de tarefa</button>
+    <button class="blue-button" ng-click="vm.askTask()">Realizar um pedido de tarefa</button>
 
 </section>
 
 <section id="tasks">
 
-    <div ng-repeat="task in vm.tasks">
+    <div class="task" ng-repeat="task in vm.tasks">
         <h4>{{task.title}}</h4>
-        <p>{{task.details}}</p>
+        <p>Detalhes: {{task.details}}</p>
+        <p>Onde: {{task.location}}</p>
+        <p>Quando: {{task.when | date: "dd/MM/yyyy"}}</p>
+        <p>Valor: R${{task.value}}</p>
+        <p>Candidatos: <b ng-repeat="candidate in task.candidates">{{candidate.name}}{{$last ? '' : ', '}}</b></p>
 
-        <button ng-click="vm.deactivate(task)" ng-show="task.active">Finalizar tarefa</button>
-        <p ng-hide="task.active">Tarefa finalizada</p>
+        <button class="blue-button" ng-click="vm.deactivate(task)" ng-show="task.active">Finalizar tarefa</button>
+        <p ng-hide="task.active" style="color: red;">Tarefa finalizada</p>
     </div>
 
 </section>

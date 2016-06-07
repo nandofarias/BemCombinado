@@ -117,10 +117,36 @@ function apply(req, res, next) {
         });
 }
 
+function unapply(req, res, next) {
+    var taskId = req.params.id;
+    var user = req.user;
+    Task.findByIdAsync(taskId)
+        .then((task) => {
+
+            var pos = _.findIndex(task.candidates, function (candidate) {
+                return candidate.id.equals(user._id);
+            })
+            var isCandidate = pos !== -1;
+
+            if (isCandidate) {
+                task.candidates.splice(pos, 1);
+                return task.saveAsync()
+                    .then(() => {
+                        res.status(204).end();
+                    })
+                    .catch(error.validationError(res));
+            } else {
+                return res.status(403).end();
+            }
+
+        });
+}
+
 module.exports = {
     create: create,
     getByUser: getByUser,
     getAll: getAll,
     deactivate: deactivate,
-    apply: apply
+    apply: apply,
+    unapply: unapply
 }
