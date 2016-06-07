@@ -3,10 +3,13 @@
 
 <section id="tasks">
 
-    <div ng-repeat="task in vm.tasks">
+    <div class="task" ng-repeat="task in vm.tasks">
         <h4>{{task.title}}</h4>
-        <p>{{task.details}}</p>
-        <button ng-click="vm.apply(task)" ng-hide="task.isOwner || task.isCandidate">Quero me candidatar</button>
+        <p>Detalhes: {{task.details}}</p>
+        <p>Onde: {{task.location}}</p>
+        <p>Quando: {{task.when | date: "dd/MM/yyyy"}}</p>
+        <p>Valor: R${{task.value}}</p>
+        <button class="blue-button" ng-click="vm.apply(task)" ng-hide="task.isOwner || task.isCandidate">Quero me candidatar</button>
 
     </div>
 

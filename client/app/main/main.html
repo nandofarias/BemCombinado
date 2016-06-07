@@ -3,7 +3,12 @@
         <form>
             <div>
                 <i class="fa fa-search"></i>
-                <input id="serviceName" type="text" placeholder="Que tipo de ajuda você precisa?">
+                <input-dropdown
+                        input-placeholder="Qual serviço você deseja?"
+                        selected-item="vm.selectedDropdownItem"
+                        default-dropdown-items="vm.dropdownItems"
+                        item-selected-method="vm.createTask(item)">
+                </input-dropdown>
             </div>
         </form>
         <div class='category-examples'>
@@ -34,41 +39,41 @@
 <section id="popular-tasks">
     <h2>Tarefas Populares</h2>
     <div class="task">
-        <a href="#" ng-click="vm.askTask()">
+        <a href="#" ng-click="vm.createTask('Pintura')">
             <div class="img" style="background-image: url('assets/images/Pintor.jpg');"></div>
             <h4>Pintura</h4>
             <p>Encontre o melhor profissional</p>
         </a>
     </div>
     <div class="task">
-        <a href="#" ng-click="vm.askTask()">
+        <a href="#" ng-click="vm.createTask('Webdesign')">
             <div class="img" style="background-image: url('assets/images/Webdesign.jpg');"></div>
             <h4>Webdesign</h4>
             <p>Encontre o melhor profissional para sua casa</p>
         </a>
     </div>
     <div class="task">
-        <a href="#" ng-click="vm.askTask()">
+        <a href="#" ng-click="vm.createTask('Conserto')">
             <div class="img" style="background-image: url('assets/images/Conserto.jpg');"></div>
             <h4>Conserto</h4>
             <p>Encontre o melhor profissional</p>
         </a>
     </div>
     <div class="task">
-        <a href="#" ng-click="vm.askTask()">
+        <a href="#" ng-click="vm.createTask('Montagem')">
             <div class="img" style="background-image: url('assets/images/Montador.jpg');"></div>
             <h4>Montagem</h4>
             <p>Encontre o melhor profissional</p>
         </a>
     </div>
     <div class="task">
-        <a href="#" ng-click="vm.askTask()">
+        <a href="#" ng-click="vm.createTask('Desenhista')">
             <div class="img" style="background-image: url('assets/images/Desenhista.jpg');"></div>
             <h4>Desenhista</h4>
             <p>Encontre o melhor profissional</p>
         </a>
     </div>
-    <div class="task" ng-click="vm.askTask()">
+    <div class="task" ng-click="vm.createTask('Geral')">
         <a href="#">
             <div class="img" style="background-image: url('assets/images/Ferramentas.jpg');"></div>
             <h4>Geral</h4>

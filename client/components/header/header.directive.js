@@ -89,6 +89,7 @@
                 .then(function (flag) {
                     vm.isLoggedIn = flag;
                 });
+            $state.go('main');
         }
     }
 

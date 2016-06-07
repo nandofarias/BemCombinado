@@ -5,10 +5,10 @@
         .module('app.main')
         .controller('mainController', mainController);
 
-    mainController.$inject = ['ngDialog', '$state'];
+    mainController.$inject = ['ngDialog'];
 
     /* @ngInject */
-    function mainController(ngDialog, $state) {
+    function mainController(ngDialog) {
         var vm = this;
         vm.title = 'mainController';
 
@@ -18,7 +18,10 @@
 
         function activate() {
             vm.signup = signup;
-            vm.askTask = askTask;
+            vm.createTask = createTask;
+
+            vm.selectedDropdownItem = null;
+            vm.dropdownItems = ['Pintura', 'Conserto', 'Geral', 'Outros'];
         }
 
         function signup(){
@@ -33,7 +36,7 @@
         }
         
 
-        function askTask() {
+        function createTask(item) {
             ngDialog.openConfirm(
                 {
                     template: 'app/tasks/task/task.html',

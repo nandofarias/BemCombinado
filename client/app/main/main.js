@@ -3,7 +3,8 @@
 
     angular
         .module('app.main',[
-            'ngDialog'
+            'ngDialog',
+            'inputDropdown'
         ])
         .run(appRun);
 

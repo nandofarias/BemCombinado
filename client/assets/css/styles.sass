@@ -8,6 +8,7 @@
 @import "colors"
 @import "typography"
 @import "form"
+@import "buttons"
     
 
 // Media Queries
@@ -83,33 +84,38 @@ section
         i
             position: absolute
             height: 1.2rem
-            padding: 0.45rem 1rem
+            padding: 0.5rem 1rem
             @media #{$sml}
-                padding: 0.45rem 0.55rem
+                padding: 0.5rem 0.55rem
             color: $Text
-        input[type="text"]
+            z-index: 10
+        .input-dropdown
             width: 100%
-            display: block
-            border: none
-                radius: 0.333rem
-            padding: 0.5rem 0rem 0.5rem 3rem
-            @media #{$sml}
-                padding: 0.5rem 0rem 0.5rem 2rem
-            color: $Text
-            font:
-                size: 0.75rem
-    li
-        display: inline
-        color: white
-        text-align: center
-        margin: 0 auto
-        font-weight: 600
-        font-size: 1.125rem
-        padding: 0.5rem
+            input[type='text']
+                margin: 0
+                width: 100%
+                display: block
+                border: none
+                    radius: 0.333rem
+                padding: 0.5rem 0rem 0.5rem 3rem
+                @media #{$sml}
+                    padding: 0.5rem 0rem 0.5rem 2rem
+                color: $Text
+                font:
+                    size: 0.75rem
+
 
     .category-examples
         margin: 0 auto
         text-align: center
+        li
+            display: inline
+            color: white
+            text-align: center
+            margin: 0 auto
+            font-weight: 600
+            font-size: 1.125rem
+            padding: 0.5rem
 
 #how-it-works
     display: flex
@@ -265,3 +271,22 @@ footer
 #header
     height: 6rem
     background: $DarkGrey
+
+#tasks
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: center
+
+    .task
+        border: none
+            radius: 0.333rem
+        width: 27%
+        margin: 2% 3%
+        vertical-align: top
+        box-shadow: 3px 3px 5px 6px #ccc
+        padding: 2rem
+        @media #{$med}
+            width: 40%
+        @media #{$sml}
+            width: 90%

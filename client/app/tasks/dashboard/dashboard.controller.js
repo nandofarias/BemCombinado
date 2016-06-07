@@ -36,7 +36,7 @@
                 {id: task._id},
                 {},
                 function (data) {
-                    task.alreadyCandidate = true;
+                    task.isCandidate = true;
                 },
                 function (err) {
                     console.log(err);

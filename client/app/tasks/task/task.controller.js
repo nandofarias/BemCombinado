@@ -5,10 +5,10 @@
         .module('app.tasks')
         .controller('taskController', taskController);
 
-    taskController.$inject = ['Auth', 'TaskService', '$scope', 'ngDialog'];
+    taskController.$inject = ['Auth', 'TaskService', '$scope', 'ngDialog', '$state'];
 
     /* @ngInject */
-    function taskController(Auth, TaskService, $scope, ngDialog) {
+    function taskController(Auth, TaskService, $scope, ngDialog, $state) {
         var vm = this;
         vm.title = 'taskController';
 
@@ -20,11 +20,6 @@
             vm.save = save;
             vm.task = {};
 
-            Auth.isLoggedIn()
-                .then(function (user) {
-                    console.log(user);
-                })
-
         }
         
         function save() {
@@ -35,6 +30,7 @@
                         TaskService.save(vm.task,
                             function (data) {
                                 $scope.confirm(data);
+                                $state.go('myOrders');
                             },
                             function (err) {
                                 console.log(err);
