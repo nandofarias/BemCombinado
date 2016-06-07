@@ -222,6 +222,17 @@ section {
       @media only screen and (max-width: 46rem) {
         #hero form input[type="text"] {
           padding: 0.5rem 0rem 0.5rem 2rem; } }
+  #hero li {
+    display: inline;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 1.125rem;
+    padding: 0.5rem; }
+  #hero .category-examples {
+    margin: 0 auto;
+    text-align: center; }
 
 #how-it-works {
   display: flex;
