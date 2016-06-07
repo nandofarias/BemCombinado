@@ -147,6 +147,20 @@ form {
 .blue-button:hover {
   background-color: #203d69; }
 
+.red-button {
+  background-color: #ff3232;
+  color: white;
+  margin: 1rem 0;
+  border: none;
+    border-radius: 0.333rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  font-size: 0.933rem; }
+
+.red-button:hover {
+  background-color: #902626; }
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
@@ -390,6 +404,20 @@ footer {
 #header {
   height: 6rem;
   background: #424242; }
+
+#orders {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center; }
+  #orders button {
+    width: 27%; }
+    @media only screen and (max-width: 60rem) {
+      #orders button {
+        width: 40%; } }
+    @media only screen and (max-width: 46rem) {
+      #orders button {
+        width: 90%; } }
 
 #tasks {
   display: flex;

@@ -19,6 +19,7 @@
         function activate() {
 
             vm.apply = apply;
+            vm.unapply = unapply;
 
             TaskService.get(
                 function (data) {
@@ -37,6 +38,19 @@
                 {},
                 function (data) {
                     task.isCandidate = true;
+                },
+                function (err) {
+                    console.log(err);
+                }
+            );
+        }
+
+        function unapply(task) {
+            TaskService.unapply(
+                {id: task._id},
+                {},
+                function (data) {
+                    task.isCandidate = false;
                 },
                 function (err) {
                     console.log(err);

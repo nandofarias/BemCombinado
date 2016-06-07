@@ -268,15 +268,33 @@ footer
         color: white
 
 
+//------------------------------ Others Sections ---------------------
+
 #header
     height: 6rem
     background: $DarkGrey
+
+
+#orders
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: center
+
+    button
+        width: 27%
+        @media #{$med}
+            width: 40%
+        @media #{$sml}
+            width: 90%
 
 #tasks
     display: flex
     flex-wrap: wrap
     flex-direction: row
     justify-content: center
+
+
 
     .task
         border: none

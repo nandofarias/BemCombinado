@@ -33,6 +33,12 @@
                     params: {
                         controller: 'apply'
                     }
+                },
+                unapply: {
+                    method: 'PUT',
+                    params: {
+                        controller: 'unapply'
+                    }
                 }
             }
         );
