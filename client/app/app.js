@@ -7,8 +7,9 @@
             'app.auth',
             'app.main',
             'app.account',
-            'app.tasks'
-
+            'app.tasks',
+            'angulartics',
+            'angulartics.google.analytics'
         ]);
 
 })();
