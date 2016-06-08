@@ -401,6 +401,23 @@ footer {
     padding: 2rem;
     color: white; }
 
+#contatos {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  color: white; }
+  #contatos .contato {
+    width: 20%;
+    padding: 2rem 1rem;
+    margin: 0 1%; }
+    @media only screen and (max-width: 60rem) {
+      #contatos .contato {
+        width: 40%; } }
+    @media only screen and (max-width: 46rem) {
+      #contatos .contato {
+        width: 90%; } }
+
 #header {
   height: 6rem;
   background: #424242; }
