@@ -3,9 +3,12 @@
 'use strict';
 
 var gulp = require('gulp');
-var nodemon = require('nodemon');
+var nodemon = require('gulp-nodemon');
 var env = require('gulp-env');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+var ngAnnotate = require('gulp-ng-annotate');
+var uglify = require('gulp-uglify');
 
 gulp.task('nodemon', function() {
     nodemon({
@@ -40,4 +43,19 @@ gulp.task('sass:watch', function () {
     gulp.watch('client/assets/css/*.sass', ['sass']);
 });
 
-gulp.task('default', ['set-env', 'nodemon', 'sass:watch']);
+gulp.task('uglify', function() {
+    gulp.src([
+            'client/app/**/*.module.js',
+            'client/components/**/*.module.js',
+            'client/app/**/*.js',
+            'client/components/**/*.js'
+        ])
+        .pipe(concat('app.min.js'))
+        .pipe(ngAnnotate({
+            add: true
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('client/dist/js'))
+});
+
+gulp.task('default', ['uglify', 'set-env', 'nodemon', 'sass:watch']);
