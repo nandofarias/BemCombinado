@@ -14,4 +14,9 @@
         <button class="red-button" ng-click="vm.unapply(task)" ng-show="task.isCandidate">Não quero mais realizar o serviço</button>
     </div>
 
+    <div class="task">
+        <h4>Infelizmente ainda não temos nenhuma tarefa disponível para você :( mas estamos trabalhando nisso</h4>
+        <img alt="no tasks found" ng-src="../../../assets/images/Oh-No.gif" ng-hide="vm.tasks.length > 0" width="100%">
+    </div>
+
 </section>
