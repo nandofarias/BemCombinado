@@ -320,6 +320,10 @@ section {
     vertical-align: top;
     background: white;
     box-shadow: 3px 3px 5px 6px #ccc; }
+
+@-moz-document url-prefix() {
+  #popular-tasks .task {
+    margin: 8px 3%; } }
     @media only screen and (max-width: 60rem) {
       #popular-tasks .task {
         width: 40%; } }
@@ -483,6 +487,10 @@ footer {
     vertical-align: top;
     box-shadow: 3px 3px 5px 6px #ccc;
     padding: 2rem; }
+
+@-moz-document url-prefix() {
+  #tasks .task {
+    margin: 8px 3%; } }
     @media only screen and (max-width: 60rem) {
       #tasks .task {
         width: 40%; } }
