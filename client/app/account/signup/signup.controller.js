@@ -31,6 +31,7 @@
             Auth.createUser({
                 name: vm.user.name,
                 email: vm.user.email,
+                phone: vm.user.phone,
                 password: vm.user.password
             })
                 .then(function(user) {
