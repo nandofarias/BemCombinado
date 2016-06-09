@@ -19,19 +19,21 @@
             {
                 state: 'myOrders',
                 config: {
-                    url: '/myOrders',
+                    url: '/',
                     templateUrl: 'app/tasks/orders/orders.html',
                     controller: 'ordersController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    authenticate: true
                 }
             },
             {
                 state: 'dashboard',
                 config: {
-                    url: '/dashboard',
+                    url: '/',
                     templateUrl: 'app/tasks/dashboard/dashboard.html',
                     controller: 'dashboardController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    authenticate: true
                 }
             }
         ];
