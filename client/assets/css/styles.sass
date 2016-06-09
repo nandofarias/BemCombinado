@@ -107,10 +107,12 @@ section
                 font:
                     size: 0.75rem
 
-
     .category-examples
         margin: 0 auto
         text-align: center
+        width: 90%
+        @media #{$sml}
+            width: 50%
         li
             display: inline
             color: white
@@ -118,7 +120,8 @@ section
             margin: 0 auto
             font-weight: 600
             font-size: 1.125rem
-            padding: 0.5rem
+            padding: 1.0rem
+
 
 #how-it-works
     display: flex

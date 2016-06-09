@@ -1,22 +1,24 @@
 <section id="hero">
-        <h1 class="animated fadeInUp">Aproveite mais tempo com a sua família,<br> o resto a gente cuida</h1>
-        <form>
-            <div>
-                <i class="fa fa-search"></i>
-                <input-dropdown
-                        input-placeholder="Qual serviço você deseja?"
-                        selected-item="vm.selectedDropdownItem"
-                        default-dropdown-items="vm.dropdownItems"
-                        item-selected-method="vm.createTask(item)">
-                </input-dropdown>
-            </div>
-        </form>
-        <div class='category-examples'>
-            <li>Eletricista</li>
-            <li>Montagem de Moveis</li>
-            <li>Pequenos Reparos</li>
-            <li>Fixação de TV</li>
+    <h1 class="animated fadeInUp">Aproveite mais tempo com a sua família,<br> o resto a gente cuida</h1>
+    <form>
+        <div>
+            <i class="fa fa-search"></i>
+            <input-dropdown
+                    input-placeholder="Qual serviço você deseja?"
+                    selected-item="vm.selectedDropdownItem"
+                    default-dropdown-items="vm.dropdownItems"
+                    item-selected-method="vm.createTask(item)">
+            </input-dropdown>
         </div>
+    </form>
+    <div class='category-examples'>
+        <ul>
+            <li>Pintura</li>
+            <li>Mudanças</li>
+            <li>Reparos</li>
+            <li>Fixação</li>
+        </ul>
+    </div>
 </section>
 <section id="how-it-works">
     <h2>Como Funciona</h2>

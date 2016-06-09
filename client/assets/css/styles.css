@@ -256,7 +256,11 @@ section {
             padding: 0.5rem 0rem 0.5rem 2rem; } }
   #hero .category-examples {
     margin: 0 auto;
-    text-align: center; }
+    text-align: center;
+    width: 90%; }
+    @media only screen and (max-width: 46rem) {
+      #hero .category-examples {
+        width: 50%; } }
     #hero .category-examples li {
       display: inline;
       color: white;
@@ -264,7 +268,7 @@ section {
       margin: 0 auto;
       font-weight: 600;
       font-size: 1.125rem;
-      padding: 0.5rem; }
+      padding: 1.0rem; }
 
 #how-it-works {
   display: -ms-flexbox;
