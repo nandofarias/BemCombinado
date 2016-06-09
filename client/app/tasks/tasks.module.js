@@ -22,7 +22,8 @@
                     url: '/myOrders',
                     templateUrl: 'app/tasks/orders/orders.html',
                     controller: 'ordersController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    authenticate: true
                 }
             },
             {
@@ -31,7 +32,8 @@
                     url: '/dashboard',
                     templateUrl: 'app/tasks/dashboard/dashboard.html',
                     controller: 'dashboardController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    authenticate: true
                 }
             }
         ];
