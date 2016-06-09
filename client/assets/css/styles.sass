@@ -163,6 +163,9 @@ section
         opacity: 0.4
     .task
         width: 27%
+        // resolving bug #958714, see more details at https://bugzilla.mozilla.org/show_bug.cgi?id=958714#c3
+        @-moz-document url-prefix()
+          margin: 8px 3%
         margin: 1% 3%
         vertical-align: top
         background: white
@@ -322,6 +325,9 @@ footer
         border: none
             radius: 0.333rem
         width: 27%
+        // resolving bug #958714, see more details at https://bugzilla.mozilla.org/show_bug.cgi?id=958714#c3
+        @-moz-document url-prefix()
+          margin: 8px 3%
         margin: 2% 3%
         vertical-align: top
         box-shadow: 3px 3px 5px 6px #ccc
