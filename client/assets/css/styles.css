@@ -123,6 +123,7 @@ form {
     border: 1px solid #ccc;
       border-radius: 0.333rem; }
   form input[type=submit] {
+    -webkit-appearance: none;
     background-color: #2980B9;
     color: white;
     margin: 1rem 0;
