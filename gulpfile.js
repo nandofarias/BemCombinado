@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('nodemon', function() {
     nodemon({
@@ -36,6 +37,10 @@ gulp.task('set-env', function () {
 gulp.task('sass', function () {
     return gulp.src('client/assets/css/styles.sass')
         .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('client/assets/css'));
 });
 
