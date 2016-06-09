@@ -28,6 +28,7 @@
     "lodash": "^4.13.1",
     "ng-dialog": "^0.6.1",
     "angular-input-dropdown": "^1.0.1",
-    "angulartics-google-analytics": "^0.1.4"
+    "angulartics-google-analytics": "^0.1.4",
+    "animate.css": "^3.5.2"
   }
 }

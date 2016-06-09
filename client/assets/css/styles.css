@@ -17,8 +17,6 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 /* HTML5 display-role reset for older browsers */
@@ -220,7 +218,9 @@ section {
   background-size: cover; }
   #hero h1 {
     color: white;
-    padding: 7.5rem 0rem 0; }
+    padding: 7.5rem 0rem 0;
+    animation-duration: 2s;
+    animation-delay: 1s; }
     @media only screen and (max-width: 60rem) {
       #hero h1 {
         padding: 6rem 0rem 2rem; } }
@@ -267,9 +267,13 @@ section {
       padding: 0.5rem; }
 
 #how-it-works {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center; }
   #how-it-works h2 {
     width: 100%; }
@@ -291,9 +295,13 @@ section {
 
 #popular-tasks {
   background-color: #EEEEEE;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center; }
   #popular-tasks h2 {
     width: 100%; }
@@ -325,13 +333,17 @@ section {
       text-align: center; }
 
 #join-taskers {
-  background: url("https://images.unsplash.com/photo-1453806839674-d1a9087ca1ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=b8f367d26cffa34e20854abbb799f634");
+  background: url("../images/Join.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center; }
   #join-taskers h2 {
     color: white;
@@ -360,10 +372,15 @@ section {
         display: none; } }
 
 #partner {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-align: baseline;
   align-items: baseline; }
   #partner h4 {
     width: 100%; }
@@ -402,9 +419,13 @@ footer {
     color: white; }
 
 #contatos {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center;
   color: white; }
   #contatos .contato {
@@ -423,9 +444,13 @@ footer {
   background: #424242; }
 
 #orders {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center; }
   #orders button {
     width: 27%; }
@@ -437,9 +462,13 @@ footer {
         width: 90%; } }
 
 #tasks {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center; }
   #tasks .task {
     border: none;
