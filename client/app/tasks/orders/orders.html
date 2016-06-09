@@ -21,7 +21,7 @@
         <p ng-hide="task.active" style="color: red;">Tarefa finalizada</p>
     </div>
 
-    <div class="task"  ng-hide="vm.tasks.length > 0" >
+    <div class="task"  ng-show="vm.tasks.length < 1" >
         <h4>Parece que você ainda não registrou nenhuma tarefa :(</h4>
         <img alt="no tasks found" ng-src="../../../assets/images/So-Sad.gif" width="100%">
     </div>
