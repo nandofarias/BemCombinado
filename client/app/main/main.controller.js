@@ -21,7 +21,11 @@
             vm.createTask = createTask;
 
             vm.selectedDropdownItem = null;
-            vm.dropdownItems = ['Pintura', 'Conserto', 'Geral', 'Outros'];
+            vm.dropdownItems = ['Pequenos Reparos', 'Pintura',
+                'Eventos', 'Mudanças', 'Buscar/Levar ou Comprar Algo',
+                'Design e Tecnologia', 'Montagem e Instalação',
+                'Limpeza', 'Consertos em Geral',
+                'Serviços Automotivos', 'Outras Tarefas'];
         }
 
         function signup(){
@@ -45,7 +49,5 @@
                     controllerAs: 'vm'
                 });
         }
-        
-        
     }
 })();
