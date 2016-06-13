@@ -16,8 +16,8 @@
         <p>Quando: {{task.when | date: "dd/MM/yyyy"}}</p>
         <p>Valor: R${{task.value}}</p>
         <p>Candidatos: <b ng-repeat="candidate in task.candidates">{{candidate.name}}{{$last ? '' : ', '}}</b></p>
-
-        <button class="blue-button" ng-click="vm.deactivate(task)" ng-show="task.active">Finalizar tarefa</button>
+        <p ng-show="task.active" style="color: green;">Tarefa Publicada no Mural</p>
+        <button class="red-button" ng-click="vm.deactivate(task)" ng-show="task.active">Já realizei esta tarefa</button>
         <p ng-hide="task.active" style="color: red;">Tarefa finalizada</p>
     </div>
 
