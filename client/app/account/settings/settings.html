@@ -1,0 +1,16 @@
+<section id="header">
+</section>
+
+<section id="settings">
+    <h4>Troca de senha</h4>
+    <form>
+        <label for="old-password">Senha atual</label>
+        <input id="old-password" type="password" ng-model="vm.user.oldPassword">
+        <label for="new-password">Nova Senha</label>
+        <input id="new-password" type="password" ng-model="vm.user.newPassword" ng-model="vm.user.newPassword" ng-minlength="3" required>
+        <label for="confirm-new-password">Confirme Nova Senha</label>
+        <input id="confirm-new-password" type="password" ng-model="vm.user.confirmPassword" match="vm.user.newPassword" ng-minlength="3" required>
+
+        <input type="submit" value="Trocar minha senha">
+    </form>
+</section>
