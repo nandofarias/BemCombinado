@@ -110,20 +110,23 @@ p {
       font-size: 0.933rem; } }
 
 form {
-  width: 55%;
+  width: 70%;
   margin: 1rem auto; }
+  form label {
+    width: 100%; }
   form input, form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
-    font-size: 0.933rem; }
+    font-size: 0.933rem;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
   form input:not([type=submit]), form textarea {
     color: #4A4A4A;
     margin: 1rem 0;
     border: 1px solid #ccc;
       border-radius: 0.333rem; }
   form input[type=submit] {
-    -webkit-appearance: none;
     background-color: #2980B9;
     color: white;
     margin: 1rem 0;
@@ -194,15 +197,20 @@ header {
         float: none;
         width: 100%;
         padding: 1rem 0rem; } }
-    header nav li + li:before {
+    header nav > ul > li + li:before {
       content: " | ";
-      padding: 0 1rem; }
-      @media only screen and (max-width: 46rem) {
-        header nav li + li:before {
-          padding: 0 0.5rem; } }
-    header nav li {
+      padding: 0 0.5rem; }
+      @media only screen and (max-width: 28.333rem) {
+        header nav > ul > li + li:before {
+          content: none;
+          padding: 0; } }
+    header nav > ul li {
       display: inline; }
-      header nav li a {
+      @media only screen and (max-width: 28.333rem) {
+        header nav > ul li {
+          display: block;
+          margin: 0.5rem 0; } }
+      header nav > ul li a {
         color: white;
         text-decoration: none; }
 
@@ -225,6 +233,9 @@ section {
     @media only screen and (max-width: 60rem) {
       #hero h1 {
         padding: 6rem 0rem 2rem; } }
+    @media only screen and (max-width: 28.333rem) {
+      #hero h1 {
+        padding: 12rem 0rem 2rem; } }
   #hero form {
     margin: 3rem auto;
     width: 30rem; }
@@ -451,6 +462,9 @@ footer {
 #header {
   height: 6rem;
   background: #424242; }
+  @media only screen and (max-width: 28.333rem) {
+    #header {
+      height: 12rem; } }
 
 #orders {
   display: -ms-flexbox;
@@ -497,3 +511,12 @@ footer {
     @media only screen and (max-width: 46rem) {
       #tasks .task {
         width: 90%; } }
+
+.ngdialog form {
+  width: 95%; }
+
+#settings > form {
+  width: 40%; }
+  @media only screen and (max-width: 46rem) {
+    #settings > form {
+      width: 90%; } }

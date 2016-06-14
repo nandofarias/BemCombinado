@@ -1,14 +1,19 @@
 @import "colors"
 
 form
-  width: 55%
+  width: 70%
   margin: 1rem auto
+  label
+    width: 100%
   input, textarea
     width: 100%
     box-sizing: border-box
     padding: 0.5rem 1rem
     font:
       size: 0.933rem
+    //Stylishing form on iOS devices http://stackoverflow.com/questions/15857092/set-width-of-native-html5-date-and-time-pickers-on-ios-devices
+    -webkit-appearance: none
+    -moz-appearance: none
 
   input:not([type=submit]), textarea
     color: $Text
@@ -17,7 +22,6 @@ form
       radius: 0.333rem
 
   input[type=submit]
-    -webkit-appearance: none
     background-color: $Blue
     color: white
     margin: 1rem 0
