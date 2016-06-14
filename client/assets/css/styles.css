@@ -110,7 +110,7 @@ p {
       font-size: 0.933rem; } }
 
 form {
-  width: 55%;
+  width: 70%;
   margin: 1rem auto; }
   form input, form textarea {
     width: 100%;
@@ -511,3 +511,9 @@ footer {
 
 .ngdialog form {
   width: 95%; }
+
+#settings > form {
+  width: 40%; }
+  @media only screen and (max-width: 46rem) {
+    #settings > form {
+      width: 90%; } }
