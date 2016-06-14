@@ -23,7 +23,8 @@
         }
         
         function save() {
-
+            var date = vm.task.when.split('/');
+            vm.task.when = date[1] + '/' + date[0] +'/' +date[2];
             Auth.isLoggedIn()
                 .then(function (flag) {
                     if(flag){
