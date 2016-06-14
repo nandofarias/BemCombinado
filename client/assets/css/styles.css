@@ -112,18 +112,21 @@ p {
 form {
   width: 70%;
   margin: 1rem auto; }
+  form label {
+    width: 100%; }
   form input, form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
-    font-size: 0.933rem; }
+    font-size: 0.933rem;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
   form input:not([type=submit]), form textarea {
     color: #4A4A4A;
     margin: 1rem 0;
     border: 1px solid #ccc;
       border-radius: 0.333rem; }
   form input[type=submit] {
-    -webkit-appearance: none;
     background-color: #2980B9;
     color: white;
     margin: 1rem 0;
