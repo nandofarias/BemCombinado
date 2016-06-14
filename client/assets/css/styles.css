@@ -520,3 +520,7 @@ footer {
   @media only screen and (max-width: 46rem) {
     #settings > form {
       width: 90%; } }
+
+.moment-picker {
+  color: deepskyblue;
+  margin: 1rem 0; }
