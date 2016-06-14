@@ -14,6 +14,7 @@
 // Media Queries
 $med: "only screen and (max-width : 60rem)"
 $sml: "only screen and (max-width : 46rem)"
+$ultrasml: "only screen and (max-width : 28.333rem)"
     
 
 body
@@ -49,18 +50,22 @@ header
         float: right
         color: white
         padding-right: 4rem
-        li + li:before
-            content: " | "
-            padding: 0 1rem
-            @media #{$sml}
+        > ul
+            > li + li:before
+                content: " | "
                 padding: 0 0.5rem
-        li
-            display: inline
-            a
-                color: white
-                text-decoration: none
+                @media #{$ultrasml}
+                    content: none
+                    padding: 0
+            li
+                @media #{$ultrasml}
+                    display: block
+                    margin: 0.5rem 0
+                display: inline
+                a
+                    color: white
+                    text-decoration: none
 
-            
 section
     padding: 1rem 6rem
     @media #{$med}
@@ -73,6 +78,8 @@ section
     h1
         @media #{$med}
             padding: 6rem 0rem 2rem
+        @media #{$ultrasml}
+            padding: 12rem 0rem 2rem
         color: white
         padding: 7.5rem 0rem 0
         animation-duration: 2s
@@ -297,6 +304,8 @@ footer
 
 #header
     height: 6rem
+    @media #{$ultrasml}
+        height: 12rem
     background: $DarkGrey
 
 

@@ -7,8 +7,10 @@
 </nav>
 <nav ng-show="vm.isLoggedIn">
     <ul>
-        <li><a href="#" ng-click="vm.dashboard()"><span>Tarefas</span></a></li>
+        <li><a href="#" ng-click="vm.dashboard()"><span>Mural de Tarefas</span></a></li>
         <li><a href="#" ng-click="vm.myOrders()"><span>Meus Pedidos</span></a></li>
+        <li><a ui-sref="settings"><span>Meus Dados</span></a></li>
         <li><a href="#" ng-click="vm.logout()" analytics-on="click" analytics-event="Logout"><span>Sair</span></a></li>
+
     </ul>
 </nav>

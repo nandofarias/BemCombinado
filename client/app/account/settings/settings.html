@@ -3,14 +3,15 @@
 
 <section id="settings">
     <h4>Troca de senha</h4>
-    <form>
+    <form name="form" ng-submit="vm.updatePassword()">
         <label for="old-password">Senha atual</label>
-        <input id="old-password" type="password" ng-model="vm.user.oldPassword">
+        <input id="old-password" type="password" ng-model="vm.user.oldPassword" ng-minlength="3" required>
         <label for="new-password">Nova Senha</label>
-        <input id="new-password" type="password" ng-model="vm.user.newPassword" ng-model="vm.user.newPassword" ng-minlength="3" required>
+        <input id="new-password" type="password" ng-model="vm.user.newPassword" ng-minlength="3" required>
         <label for="confirm-new-password">Confirme Nova Senha</label>
         <input id="confirm-new-password" type="password" ng-model="vm.user.confirmPassword" match="vm.user.newPassword" ng-minlength="3" required>
 
+        <p>{{vm.message}}</p>
         <input type="submit" value="Trocar minha senha">
     </form>
 </section>
