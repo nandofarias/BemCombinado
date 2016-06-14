@@ -5,7 +5,8 @@
         .module('app.tasks',[
             'ngDialog',
             'ngResource',
-            'app.auth'
+            'app.auth',
+            'moment-picker'
         ])
         .run(appRun);
 
