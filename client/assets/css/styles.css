@@ -508,3 +508,6 @@ footer {
     @media only screen and (max-width: 46rem) {
       #tasks .task {
         width: 90%; } }
+
+.ngdialog form {
+  width: 95%; }
