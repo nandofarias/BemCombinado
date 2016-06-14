@@ -22,13 +22,18 @@
         }
 
         function updatePassword() {
-            Auth.changePassword(vm.user.oldPassword, vm.user.newPassword)
-                .then(function () {
-                    vm.message = "Senha alterada com sucesso";
-                })
-                .catch(function (err) {
-                    vm.message = "Senha incorreta, tente novamente!";
-                })
+            if(vm.user.newPassword === vm.user.confirmPassword){
+                Auth.changePassword(vm.user.oldPassword, vm.user.newPassword)
+                    .then(function () {
+                        vm.message = "Senha alterada com sucesso";
+                    })
+                    .catch(function (err) {
+                        vm.message = "Senha incorreta, tente novamente!";
+                    })
+            }else{
+                vm.message = "Nova senha e senha de confirmação estão diferentes";
+            }
+
         }
     }
 
