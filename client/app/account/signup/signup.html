@@ -9,7 +9,7 @@
     <label for="password">Senha:</label>
     <input type="password" ng-model="vm.user.password" id="password"/>
 
-    <p class="error" ng-repeat="error in vm.errors">{{ error.message }}</p>
+    <p style="color:red;" ng-repeat="error in vm.errors">{{ error.message }}</p>
     <input type="submit" value="Cadastrar"/>
 
     <button type="button" class="blue-button"
