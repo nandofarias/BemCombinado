@@ -21,7 +21,7 @@
             {
                 state: 'myOrders',
                 config: {
-                    url: '/',
+                    url: '/orders',
                     templateUrl: 'app/tasks/orders/orders.html',
                     controller: 'ordersController',
                     controllerAs: 'vm',
@@ -31,7 +31,7 @@
             {
                 state: 'dashboard',
                 config: {
-                    url: '/',
+                    url: '/dashboard',
                     templateUrl: 'app/tasks/dashboard/dashboard.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm',
