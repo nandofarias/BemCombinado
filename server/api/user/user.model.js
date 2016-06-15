@@ -32,7 +32,9 @@ var UserSchema = new Schema({
     updated_at: {
         type: Date,
         default: Date.now
-    }
+    },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 
 
@@ -181,6 +183,7 @@ UserSchema.methods = {
                 callback(null, key.toString('base64'));
             }
         });
+        
     }
 }
 

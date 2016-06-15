@@ -17,7 +17,7 @@
             {
                 state: 'settings',
                 config: {
-                    url: '/',
+                    url: '/settings',
                     templateUrl: 'app/account/settings/settings.html',
                     controller: 'settingsController',
                     controllerAs: 'vm',
