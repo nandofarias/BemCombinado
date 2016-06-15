@@ -496,7 +496,7 @@ footer {
   #tasks .task {
     border: none;
       border-radius: 0.333rem;
-    width: 27%;
+    width: 40%;
     margin: 2% 3%;
     vertical-align: top;
     box-shadow: 3px 3px 5px 6px #ccc;
@@ -505,9 +505,6 @@ footer {
 @-moz-document url-prefix() {
   #tasks .task {
     margin: 8px 3%; } }
-    @media only screen and (max-width: 60rem) {
-      #tasks .task {
-        width: 40%; } }
     @media only screen and (max-width: 46rem) {
       #tasks .task {
         width: 90%; } }
