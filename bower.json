@@ -32,6 +32,8 @@
     "animate.css": "^3.5.2",
     "angular": "^1.5.6",
     "angular-moment-picker": "moment-picker#^0.5.3",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "angular-i18n": "^1.5.6",
+    "ng-currency": "^0.10.1"
   }
 }
