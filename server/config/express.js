@@ -27,6 +27,7 @@ module.exports = function(app) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(methodOverride());
+    app.set('appPath', path.join(config.root, 'client'));
     app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'client')));
     app.use(cookieParser());
@@ -39,7 +40,7 @@ module.exports = function(app) {
         resave: false,
         store: new mongoStore({
             mongooseConnection: mongoose.connection,
-            db: 'teste'
+            db: 'BemCombinado'
         })
     }));
 
