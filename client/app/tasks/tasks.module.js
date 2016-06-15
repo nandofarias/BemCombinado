@@ -6,7 +6,8 @@
             'ngDialog',
             'ngResource',
             'app.auth',
-            'moment-picker'
+            'moment-picker',
+            'ng-currency'
         ])
         .run(appRun);
 
