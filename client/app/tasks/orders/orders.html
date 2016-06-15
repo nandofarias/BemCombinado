@@ -11,11 +11,11 @@
 
     <div class="task" ng-repeat="task in vm.tasks">
         <h4>{{task.title}}</h4>
-        <p>Detalhes: {{task.details}}</p>
-        <p>Onde: {{task.location}}</p>
-        <p>Quando: {{task.when | date: "dd/MM/yyyy"}}</p>
-        <p>Valor: {{task.value | currency}}</p>
-        <p>Candidatos: <b ng-repeat="candidate in task.candidates">{{candidate.name}}{{$last ? '' : ', '}}</b></p>
+        <p><b>Detalhes:</b> {{task.details}}</p>
+        <p><b>Onde:</b> {{task.location}}</p>
+        <p><b>Quando:</b> {{task.when | date: "dd/MM/yyyy"}}</p>
+        <p><b>Valor:</b> {{task.value | currency}}</p>
+        <p><b>Candidatos:</b> <span ng-repeat="candidate in task.candidates">{{candidate.name}}{{$last ? '' : ', '}}</span></p>
         <p ng-show="task.active" style="color: green;">Tarefa Publicada no Mural</p>
         <button class="red-button" ng-click="vm.deactivate(task)" ng-show="task.active">Já realizei esta tarefa</button>
         <p ng-hide="task.active" style="color: red;">Tarefa finalizada</p>
