@@ -25,6 +25,18 @@
                     params: {
                         id: 'me'
                     }
+                },
+                forgotPassword: {
+                    method: 'POST',
+                    params: {
+                        id: 'forgot'
+                    }
+                },
+                resetPassword: {
+                    method: 'POST',
+                    params: {
+                        id: 'reset'
+                    }
                 }
             }
         );

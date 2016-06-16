@@ -4,6 +4,8 @@ var User = require('./user.model');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var error = require('../../components/errors');
+var crypto =  require('crypto');
+var mailer = require('../../components/mailer');
 
 function index(req, res) {
     User.findAsync({}, '-salt -password')
@@ -85,6 +87,75 @@ function changePassword(req, res, next) {
         });
 }
 
+function forgotPassword(req, res, next) {
+
+    User.findOneAsync({
+        email: req.body.email
+    })
+        .then((user) => {
+            if (!user) {
+                return res.status(404).end();
+            }
+            var token = crypto.randomBytes(20).toString('hex');
+            user.resetPasswordToken = token;
+            user.resetPasswordExpires = Date.now() + 1000 * 60 * 60 * 24 * 2; // 2 dias
+
+            var email = user.email;
+
+            return user.saveAsync()
+                .then(() => {
+
+                    var mail = {
+                        from: '"Contato BemCombinado.com"<contato@bemcombinado.com>',
+                        to: email,
+                        subject: 'Esqueci minha senha',
+                        text: 'Você está recebendo esta mensagem porque você (ou alguém) solicitou a troca de senha no nosso site.\n' +
+                              'Por favor, clique no link ou copie para o seu navegador de internet para que possa continuar seu processo: \n\n' +
+                              'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+                              'Se você não solicitou a troca de senha, ignore este email e sua senha continuará a mesma.'
+                    };
+
+                    mailer.send(mail)
+                        .then(() => {
+                            console.log("teste");
+                            return res.status(204).end();
+                        })
+                        .catch(error.handleError(res));
+                })
+                .catch(error.handleError(res));
+
+        })
+        .catch(error.validationError(res));
+
+}
+
+function resetPassword(req, res, next){
+
+    User.findOneAsync({
+        resetPasswordToken: req.params.token,
+        resetPasswordExpires: { $gt: Date.now() }
+    })
+        .then((user) => {
+            if (!user) {
+                return res.status(404).end();
+            }
+
+            user.password = req.body.password;
+            user.resetPasswordToken = undefined;
+            user.resetPasswordExpires = undefined;
+
+
+            user.saveAsync()
+                .then(()=>{
+                    return res.status(204).end();
+                })
+                .catch(error.handleError(res));
+        })
+        .catch(error.validationError(res));
+
+}
+
+
 function authCallback(req, res, next) {
     res.redirect('/');
 }
@@ -96,5 +167,7 @@ module.exports = {
     destroy: destroy,
     me: me,
     changePassword: changePassword,
-    authCallback: authCallback
+    authCallback: authCallback,
+    forgotPassword: forgotPassword,
+    resetPassword: resetPassword
 }

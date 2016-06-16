@@ -23,6 +23,24 @@
                     controllerAs: 'vm',
                     authenticate: true
                 }
+            },
+            {
+                state: 'forgotPassword',
+                config: {
+                    url: '/forgot',
+                    templateUrl: 'app/account/forgot-password/forgot-password.html',
+                    controller: 'forgotPasswordController',
+                    controllerAs: 'vm'
+                }
+            },
+            {
+                state: 'resetPassword',
+                config: {
+                    url: '/reset/:token',
+                    templateUrl: 'app/account/reset-password/reset-password.html',
+                    controller: 'resetPasswordController',
+                    controllerAs: 'vm'
+                }
             }
         ];
     }

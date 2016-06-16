@@ -3,7 +3,7 @@
     <label for="name">Nome Completo:</label>
     <input type="text" ng-model="vm.user.name" id="name"/>
     <label for="email">Email:</label>
-    <input type="text" ng-model="vm.user.email" id="email"/>
+    <input type="email" ng-model="vm.user.email" id="email"/>
     <label for="phone">Telefone:</label>
     <input type="tel" ng-model="vm.user.phone" id="phone"/>
     <label for="password">Senha:</label>
@@ -17,7 +17,9 @@
             ng-dialog-class="ngdialog-theme-plain"
             ng-dialog-controller="loginController"
             ng-dialog-controller-as="vm"
-            ng-dialog-close-previous>
+            ng-dialog-close-previous
+            ng-dialog-close-by-document="false"
+            ng-dialog-close-by-navigation="true">
         Já possuo login
     </button>
 </form>

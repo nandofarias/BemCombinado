@@ -46,8 +46,6 @@
         function activate() {
             vm.signup = signup;
             vm.login = login;
-            vm.myOrders = myOrders;
-            vm.dashboard = dashboard;
             vm.logout = logout;
             Auth.isLoggedIn()
                 .then(function (flag) {
@@ -61,7 +59,9 @@
                     template: 'app/account/signup/signup.html',
                     className: 'ngdialog-theme-plain',
                     controller: 'signupController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    closeByDocument: false,
+                    closeByNavigation: true
                 });
         }
 
@@ -71,16 +71,10 @@
                     template: 'app/account/login/login.html',
                     className: 'ngdialog-theme-plain',
                     controller: 'loginController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    closeByDocument: false,
+                    closeByNavigation: true
                 });
-        }
-        
-        function myOrders() {
-            $state.go('myOrders');
-        }
-
-        function dashboard() {
-            $state.go('dashboard');
         }
         
         function logout() {

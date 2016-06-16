@@ -51,7 +51,9 @@
                     template: 'app/account/signup/signup.html',
                     className: 'ngdialog-theme-plain',
                     controller: 'signupController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    closeByDocument: false,
+                    closeByNavigation: true
                 });
         }
         
