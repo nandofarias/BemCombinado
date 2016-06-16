@@ -1,10 +1,12 @@
 <h4>Meu Login</h4>
 <form ng-submit="vm.login()" analytics-on="submit" analytics-event="Login">
     <label for="email">Email:</label>
-    <input type="text" ng-model="vm.user.email" id="email"/>
+    <input type="email" ng-model="vm.user.email" id="email"/>
     <label for="password">Senha:</label>
     <input type="password" ng-model="vm.user.password" id="password"/>
 
     <p style="color:red;"> {{vm.error.message}}</p>
     <input type="submit" value="Entrar"/>
+
+    <a ui-sref="forgotPassword" href="#">Esqueci minha senha</a>
 </form>

@@ -26,7 +26,9 @@
             isLoggedIn: isLoggedIn,
             hasRole: hasRole,
             isAdmin: isAdmin,
-            getToken: getToken
+            getToken: getToken,
+            forgotPassword: forgotPassword,
+            resetPassword: resetPassword
         };
         return Auth;
 
@@ -143,6 +145,28 @@
 
         function getToken() {
             return $cookies.get('token');
+        }
+
+        function forgotPassword(user,callback) {
+            return User.forgotPassword({}, {
+                email: user.email
+            }, function() {
+                return safeCb(callback)(null);
+            }, function(err) {
+                return safeCb(callback)(err);
+            }).$promise;
+        }
+
+        function resetPassword(password, token, callback){
+            return User.resetPassword({
+                controller: token
+            }, {
+                password: password
+            }, function() {
+                return safeCb(callback)(null);
+            }, function(err) {
+                return safeCb(callback)(err);
+            }).$promise;
         }
     }
 })();

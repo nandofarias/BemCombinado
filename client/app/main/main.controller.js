@@ -35,7 +35,9 @@
                     className: 'ngdialog-theme-plain',
                     controller: 'signupController',
                     controllerAs: 'vm',
-                    data: vm.user
+                    data: vm.user,
+                    closeByDocument: false,
+                    closeByNavigation: true
                 });
         }
         
@@ -46,7 +48,9 @@
                     template: 'app/tasks/task/task.html',
                     className: 'ngdialog-theme-plain',
                     controller: 'taskController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    closeByDocument: false,
+                    closeByNavigation: true
                 });
         }
     }
