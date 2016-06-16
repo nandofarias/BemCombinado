@@ -111,13 +111,12 @@ function forgotPassword(req, res, next) {
                         subject: 'Esqueci minha senha',
                         text: 'Você está recebendo esta mensagem porque você (ou alguém) solicitou a troca de senha no nosso site.\n' +
                               'Por favor, clique no link ou copie para o seu navegador de internet para que possa continuar seu processo: \n\n' +
-                              'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+                              'http://www.bemcombinado.com/reset/' + token + '\n\n' +
                               'Se você não solicitou a troca de senha, ignore este email e sua senha continuará a mesma.'
                     };
 
                     mailer.send(mail)
                         .then(() => {
-                            console.log("teste");
                             return res.status(204).end();
                         })
                         .catch(error.handleError(res));
