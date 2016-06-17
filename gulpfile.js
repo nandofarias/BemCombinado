@@ -47,6 +47,10 @@ gulp.task('uglify', function() {
         .pipe(gulp.dest('client/dist/js'))
 });
 
+gulp.task('uglify:watch', function () {
+    gulp.watch(['client/app/**/*.js', 'client/components/**/*.js'], ['uglify']);
+});
+
 gulp.task('prod', ['uglify', 'sass']);
 
-gulp.task('default', ['uglify', 'nodemon', 'sass:watch']);
+gulp.task('default', ['sass:watch', 'uglify:watch', 'nodemon']);
