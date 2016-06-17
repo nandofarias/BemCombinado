@@ -20,7 +20,7 @@ gulp.task('nodemon', function() {
 
 gulp.task('sass', function () {
     return gulp.src('client/assets/css/styles.sass')
-        .pipe(sass())
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -53,4 +53,4 @@ gulp.task('uglify:watch', function () {
 
 gulp.task('prod', ['uglify', 'sass']);
 
-gulp.task('default', ['sass:watch', 'uglify:watch', 'nodemon']);
+gulp.task('default', ['sass', 'uglify', 'nodemon', 'sass:watch', 'uglify:watch']);
