@@ -25,7 +25,7 @@ gulp.task('sass', function () {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('client/assets/css'));
+        .pipe(gulp.dest('client/dist/css'));
 });
 
 gulp.task('sass:watch', function () {
