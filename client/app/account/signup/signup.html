@@ -12,14 +12,5 @@
     <p style="color:red;" ng-repeat="error in vm.errors">{{ error.message }}</p>
     <input type="submit" value="Cadastrar"/>
 
-    <button type="button" class="blue-button"
-            ng-dialog="app/account/login/login.html"
-            ng-dialog-class="ngdialog-theme-plain"
-            ng-dialog-controller="loginController"
-            ng-dialog-controller-as="vm"
-            ng-dialog-close-previous
-            ng-dialog-close-by-document="false"
-            ng-dialog-close-by-navigation="true">
-        Já possuo login
-    </button>
+    <button type="button" class="blue-button" ng-click="vm.openLogin()">Já possuo login</button>
 </form>
