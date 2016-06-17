@@ -19,11 +19,34 @@ function create(req, res, next) {
     var newUser = new User(req.body);
     newUser.provider = 'local';
     newUser.role = 'user';
+    var user = newUser;
     newUser.saveAsync()
         .then((user) => {
             var token = jwt.sign({ _id: user._id, role: user.role}, config.secrets.session, {
                 expiresIn: 60 * 60 * 5
             });
+
+            var mail = {
+                from: '"Contato BemCombinado.com"<contato@bemcombinado.com>',
+                to: user.email,
+                subject: 'Bem Vindo ao BemCombinado.com',
+                text: 'Olá ' + user.name + ', \n\n' +
+                    'Bem Vindo ao BemCombinado.com é um prazer conhecê-lo.\n\n' +
+                    'Nosso sistema está em constante evolução, nossa plataforma irá de maneira segura, rápida e fácil conectar você, ' +
+                    'que tem uma necessidade de resolver uma tarefa, com uma outra pessoa que está disposta a resolvê-la pra você.\n\n' +
+                    'Além disso, você irá encontrar pessoas que tenham tarefas por fazer, ' +
+                    'quanto elas esperam gastar e terá um meio fácil de se comunicar com elas.\n\n' +
+                    'Guarde este endereço de e-mail, ele pode ser necessário posteriormente. ' +
+                    'Adicione nosso endereço aos seus contatos para certificar-se que nossos e-mails cheguem a sua caixa de entrada.\n\n' +
+                    'Se você tiver perguntas ou precisar de ajuda, ' +
+                    'entre em contato a qualquer momento por meio deste e-mail ou visite nossa página do facebook (http://fb.me/bemcombinado).\n\n' +
+                    'Mais uma vez, seja muito bem vindo e conte conosco.\n\n' +
+                    'Atenciosamente,\n' +
+                    'Equipe BemCombinado.com'
+            };
+
+            mailer.send(mail);
+
             res.json({ token });
         })
         .catch(error.validationError(res));
