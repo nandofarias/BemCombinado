@@ -47,4 +47,6 @@ gulp.task('uglify', function() {
         .pipe(gulp.dest('client/dist/js'))
 });
 
+gulp.task('prod', ['uglify', 'sass']);
+
 gulp.task('default', ['uglify', 'nodemon', 'sass:watch']);
