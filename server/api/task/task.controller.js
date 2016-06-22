@@ -101,6 +101,8 @@ function apply(req, res, next) {
     candidate.email = user.email;
     candidate.phone = user.phone;
     candidate.active = true;
+    candidate.appliedAt = new Date();
+
 
     Task.findByIdAsync(taskId)
         .then((task) => {
