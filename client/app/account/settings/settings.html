@@ -1,17 +1,40 @@
 <section id="header">
 </section>
 
-<section id="settings">
-    <h4>Troca de senha</h4>
-    <form name="form" ng-submit="vm.updatePassword()">
-        <label for="old-password">Senha atual</label>
-        <input id="old-password" type="password" ng-model="vm.user.oldPassword" ng-minlength="3" required>
-        <label for="new-password">Nova Senha</label>
-        <input id="new-password" type="password" ng-model="vm.user.newPassword" ng-minlength="3" required>
-        <label for="confirm-new-password">Confirme Nova Senha</label>
-        <input id="confirm-new-password" type="password" ng-model="vm.user.confirmPassword" ng-minlength="3" required>
+<section class="settings">
 
-        <p style="color:red;">{{vm.message}}</p>
-        <input type="submit" value="Trocar minha senha">
+    <h4>Perfil</h4>
+    <form ng-submit="vm.editProfile()">
+        <label for="name">Nome</label>
+        <input type="text" id="name" ng-model="vm.user.name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" ng-model="vm.user.email" required>
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" ng-model="vm.user.phone">
+        <input type="checkbox" id="isTasker" ng-model="vm.user.isTasker">
+        <span for="isTasker">Eu desejo ser um resolvedor</span>
+        <div ng-show="vm.user.isTasker">
+            <label for="skill">Habilidades</label>
+            <div>
+                <input type="text" id="skill" ng-model="vm.skill" placeholder="Ex: Pintura">
+                <button id="addSkill" class="blue-button" ng-click="vm.addSkill()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <div class="tag" ng-repeat="skill in vm.user.skills track by $index">
+                    <button class="red-button" ng-click="vm.removeSkill($index)">{{skill}} <i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <label for="bio">Descrição do seu trabalho</label>
+            <textarea type="text" id="bio" ng-model="vm.user.bio" rows="5" placeholder="Descreva brevemente o seu trabalho"></textarea>
+        </div>
+
+        <p class="error" ng-show="vm.error">{{vm.error}}</p>
+        <p class="message" ng-show="vm.message">{{vm.message}}</p>
+
+        <input type="submit" value="Salvar alterações">
+
+        <a href="#" ui-sref="changePassword">Alterar minha senha</a>
+
+
+
     </form>
+
 </section>

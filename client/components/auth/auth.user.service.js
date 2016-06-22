@@ -37,6 +37,9 @@
                     params: {
                         id: 'reset'
                     }
+                },
+                update: {
+                    method: 'PUT'
                 }
             }
         );

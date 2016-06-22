@@ -5,35 +5,46 @@
         .module('app.account')
         .controller('settingsController', settingsController);
 
-    settingsController.$inject = ['Auth'];
+    settingsController.$inject = ['Auth', 'User'];
 
     /* @ngInject */
-    function settingsController(Auth) {
+    function settingsController(Auth, User) {
         var vm = this;
         vm.title = 'settingsController';
-        vm.user = {};
 
         activate();
 
         ////////////////
 
         function activate() {
-            vm.updatePassword = updatePassword;
+            Auth.getCurrentUser(function (user) {
+               vm.user = user;
+            });
+            vm.editProfile = editProfile;
+            vm.addSkill = addSkill;
+            vm.removeSkill = removeSkill;
         }
 
-        function updatePassword() {
-            if(vm.user.newPassword === vm.user.confirmPassword){
-                Auth.changePassword(vm.user.oldPassword, vm.user.newPassword)
-                    .then(function () {
-                        vm.message = "Senha alterada com sucesso";
-                    })
-                    .catch(function (err) {
-                        vm.message = "Senha incorreta, tente novamente!";
-                    })
-            }else{
-                vm.message = "Nova senha e senha de confirmação estão diferentes";
-            }
 
+        function editProfile() {
+            vm.error = undefined;
+            vm.message = undefined;
+            User.update({id: vm.user._id}, vm.user
+                , function () {
+                    vm.message = "Perfil alterado com sucesso!";
+                }, function (err) {
+                    vm.error = "Houver um erro inesperado ao acessar os dados do seu perfil, tente novamente mais tarde.";
+                });
+        }
+
+        function addSkill() {
+            if(vm.skill)
+                vm.user.skills.push(vm.skill);
+            vm.skill = undefined;
+        }
+
+        function removeSkill(index) {
+            vm.user.skills.splice(index, 1);
         }
     }
 
