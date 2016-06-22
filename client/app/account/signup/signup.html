@@ -1,16 +1,34 @@
 <h4>Meu Cadastro</h4>
 <form ng-submit="vm.register()" analytics-on="submit" analytics-event="Signup">
-    <label for="name">Nome Completo:</label>
+    <label for="name">Nome Completo</label>
     <input type="text" ng-model="vm.user.name" id="name"/>
-    <label for="email">Email:</label>
+    <label for="email">Email</label>
     <input type="email" ng-model="vm.user.email" id="email"/>
-    <label for="phone">Telefone:</label>
+    <label for="phone">Telefone</label>
     <input type="tel" ng-model="vm.user.phone" id="phone"/>
-    <label for="password">Senha:</label>
+    <label for="password">Senha</label>
     <input type="password" ng-model="vm.user.password" id="password"/>
+    <input type="checkbox" id="isTasker" ng-model="vm.user.isTasker">
+    <span for="isTasker">Eu desejo ser um resolvedor</span>
+    <div ng-show="vm.user.isTasker">
+        <label for="skill">Habilidades *</label>
+        <div>
+            <input type="text" id="skill" ng-model="vm.skill" placeholder="Ex: Pintura" form="formSkill">
+            <button id="addSkill" class="blue-button" form="formSkill"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <div class="tag" ng-repeat="skill in vm.user.skills track by $index">
+                <button type="button" class="red-button" ng-click="vm.removeSkill($index)">{{skill}} <i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <label for="bio">Descrição do seu trabalho *</label>
+        <textarea type="text" id="bio" ng-model="vm.user.bio" rows="5" placeholder="Descreva brevemente o seu trabalho"></textarea>
+        <p>* Suas habilidades e a descrição do seu trabalho podem ser adicionadas posteriormente em Meus Dados</p>
+    </div>
 
-    <p style="color:red;" ng-repeat="error in vm.errors">{{ error.message }}</p>
+
+    <p class="error" ng-repeat="error in vm.errors">{{ error.message }}</p>
     <input type="submit" value="Cadastrar"/>
 
     <button type="button" class="blue-button" ng-click="vm.openLogin()">Já possuo login</button>
 </form>
+
+<form id="formSkill" ng-submit="vm.addSkill()"></form>

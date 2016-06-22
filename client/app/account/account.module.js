@@ -41,6 +41,15 @@
                     controller: 'resetPasswordController',
                     controllerAs: 'vm'
                 }
+            },
+            {
+                state: 'changePassword',
+                config: {
+                    url: '/password',
+                    templateUrl: 'app/account/change-password/change-password.html',
+                    controller: 'changePasswordController',
+                    controllerAs: 'vm'
+                }
             }
         ];
     }

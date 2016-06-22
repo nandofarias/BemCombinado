@@ -177,6 +177,30 @@ function resetPassword(req, res, next){
 
 }
 
+function update(req, res, next){
+
+    var userId = req.user._id;
+
+    var userUpdated = req.body;
+
+    var user = {};
+
+    user.name = userUpdated.name || user.name;
+    user.email = userUpdated.email || user.email
+    user.phone = userUpdated.phone || undefined;
+    user.isTasker = userUpdated.isTasker;
+    user.skills = userUpdated.skills || undefined;
+    user.bio = userUpdated.bio || undefined;
+
+    User.updateAsync({_id: userId}, user)
+        .then(() => {
+            return res.status(204).end();
+        })
+        .catch(error.validationError(res));
+    
+
+}
+
 
 function authCallback(req, res, next) {
     res.redirect('/');
@@ -191,5 +215,6 @@ module.exports = {
     changePassword: changePassword,
     authCallback: authCallback,
     forgotPassword: forgotPassword,
-    resetPassword: resetPassword
-}
+    resetPassword: resetPassword,
+    update: update
+};

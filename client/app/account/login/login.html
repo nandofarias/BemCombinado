@@ -1,8 +1,8 @@
 <h4>Meu Login</h4>
 <form ng-submit="vm.login()" analytics-on="submit" analytics-event="Login">
-    <label for="email">Email:</label>
+    <label for="email">Email</label>
     <input type="email" ng-model="vm.user.email" id="email"/>
-    <label for="password">Senha:</label>
+    <label for="password">Senha</label>
     <input type="password" ng-model="vm.user.password" id="password"/>
 
     <p style="color:red;"> {{vm.error.message}}</p>

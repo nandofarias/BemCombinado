@@ -25,6 +25,12 @@ var UserSchema = new Schema({
     facebook: {},
     twitter: {},
     google: {},
+    isTasker: {
+        type: Boolean,
+        default: false
+    },
+    skills: [],
+    bio: String,
     created_at: {
         type: Date,
         default: Date.now
@@ -168,7 +174,7 @@ UserSchema.methods = {
 
         var defaultIterations = 10000;
         var defaultKeyLength = 256;
-        var digest = 'SHA256'
+        var digest = 'SHA256';
         var salt = new Buffer(this.salt, 'base64');
 
         if (!callback) {
