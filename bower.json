@@ -35,5 +35,8 @@
     "moment": "^2.13.0",
     "angular-i18n": "^1.5.6",
     "ng-currency": "^0.10.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.7"
   }
 }
