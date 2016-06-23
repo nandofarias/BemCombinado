@@ -37,7 +37,8 @@ gulp.task('uglify', function() {
             'client/app/**/*.module.js',
             'client/components/**/*.module.js',
             'client/app/**/*.js',
-            'client/components/**/*.js'
+            'client/components/**/*.js',
+            '!client/**/*.spec.js'
         ])
         .pipe(concat('app.min.js'))
         .pipe(ngAnnotate({
