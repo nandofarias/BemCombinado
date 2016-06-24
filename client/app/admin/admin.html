@@ -1,0 +1,29 @@
+<section id="header"></section>
+
+<section>
+    <h4>Usuarios</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Criado</th>
+                <th>Atualizado</th>
+                <th>Prestador?</th>
+                <th>Bio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.users">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.created_at | date}}</td>
+                <td>{{user.updated_at | date}}</td>
+                <td>{{user.isTasker}}</td>
+                <td>{{user.bio}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
