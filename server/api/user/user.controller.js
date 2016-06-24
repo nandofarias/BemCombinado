@@ -185,18 +185,56 @@ function update(req, res, next){
 
     var user = {};
 
-    user.name = userUpdated.name || user.name;
-    user.email = userUpdated.email || user.email
-    user.phone = userUpdated.phone || undefined;
-    user.isTasker = userUpdated.isTasker;
-    user.skills = userUpdated.skills || undefined;
-    user.bio = userUpdated.bio || undefined;
+    User.findOneAsync({_id: userId})
+        .then((user) => {
+            if (!user) {
+                return res.status(404).end();
+            }
 
-    User.updateAsync({_id: userId}, user)
-        .then(() => {
-            return res.status(204).end();
+            if(user.email !== userUpdated.email){
+                User.findOneAsync({email: userUpdated.email})
+                    .then((userFinded) => {
+                        if(userFinded){
+                            return res.status(403).end();
+                        }else{
+                            user.name = userUpdated.name || user.name;
+                            user.email = userUpdated.email || user.email;
+                            user.phone = userUpdated.phone || undefined;
+                            user.isTasker = userUpdated.isTasker;
+                            user.skills = userUpdated.skills || undefined;
+                            user.bio = userUpdated.bio || undefined;
+
+
+                            User.updateAsync({_id: userId}, user)
+                                .then(() => {
+                                    return res.status(204).end();
+                                })
+                                .catch(error.validationError(res));
+                        }
+                    })
+                    .catch(error.validationError(res));
+            }else{
+
+
+
+            user.name = userUpdated.name || user.name;
+            user.email = userUpdated.email || user.email;
+            user.phone = userUpdated.phone || undefined;
+            user.isTasker = userUpdated.isTasker;
+            user.skills = userUpdated.skills || undefined;
+            user.bio = userUpdated.bio || undefined;
+
+
+            User.updateAsync({_id: userId}, user)
+                .then(() => {
+                    return res.status(204).end();
+                })
+                .catch(error.validationError(res));
+            }
         })
         .catch(error.validationError(res));
+
+
     
 
 }

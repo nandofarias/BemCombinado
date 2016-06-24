@@ -8,6 +8,7 @@
             'app.main',
             'app.account',
             'app.tasks',
+            'app.admin',
             'angulartics',
             'angulartics.google.analytics'
         ]);

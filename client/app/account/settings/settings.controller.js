@@ -33,7 +33,12 @@
                 , function () {
                     vm.message = "Perfil alterado com sucesso!";
                 }, function (err) {
-                    vm.error = "Houver um erro inesperado ao acessar os dados do seu perfil, tente novamente mais tarde.";
+                    if(err.status === 403){
+                        vm.error = "Email já cadastrado em outra conta";
+                    }else{
+                        vm.error = "Houver um erro inesperado ao acessar os dados do seu perfil, tente novamente mais tarde.";
+                    }
+
                 });
         }
 
