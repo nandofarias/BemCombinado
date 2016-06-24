@@ -18,10 +18,6 @@
 
         function activate() {
             vm.users = User.query();
-
-
-            console.log(vm.users);
-            
         }
     }
 
