@@ -39,7 +39,14 @@
                     params: {
                         controller: 'unapply'
                     }
+                },
+                getAllAdmin: {
+                    method: 'GET',
+                    params: {
+                        id: 'admin'
+                    }
                 }
+
             }
         );
         return service;

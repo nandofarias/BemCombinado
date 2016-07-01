@@ -1,7 +1,35 @@
 <section id="header"></section>
 
+<section id="tasksAdmin" ng-show="vm.tasks">
+    <h4>Tarefas</h4>
+    <p>Total de Tarefas: {{vm.tasks.length}}</p>
+    <table>
+        <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Usuario</th>
+            <th>Quando</th>
+            <th>Valor</th>
+            <th>Candidatos</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="task in vm.tasks">
+            <td>{{task.title}}</td>
+            <td>{{task.user.name}}</td>
+            <td>{{task.when | date}}</td>
+            <td>{{task.value}}</td>
+            <td><span ng-repeat="candidate in task.candidates">{{candidate.name}}{{$last ? '' : ', '}}</span></td>
+            <td>{{task.active}}</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
 <section id="users" ng-show="vm.users">
     <h4>Usuarios</h4>
+    <p>Total de usuários: {{vm.users.length}}</p>
     <table>
         <thead>
             <tr>
@@ -15,6 +43,7 @@
             </tr>
         </thead>
         <tbody>
+
             <tr ng-repeat="user in vm.users">
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
@@ -27,3 +56,6 @@
         </tbody>
     </table>
 </section>
+
+
+

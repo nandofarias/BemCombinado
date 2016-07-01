@@ -5,10 +5,10 @@
         .module('app.admin')
         .controller('adminController', adminController);
 
-    adminController.$inject = ['User'];
+    adminController.$inject = ['User', 'TaskService'];
 
     /* @ngInject */
-    function adminController(User) {
+    function adminController(User, TaskService) {
         var vm = this;
         vm.title = 'adminController';
 
@@ -18,6 +18,10 @@
 
         function activate() {
             vm.users = User.query();
+            TaskService.getAllAdmin(function(response){
+                vm.tasks = response.tasks;
+            });
+
         }
     }
 

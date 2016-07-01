@@ -12,5 +12,6 @@ router.get('/', auth.isAuthenticated(), controller.getAll);
 router.put('/:id/deactivate', auth.isAuthenticated(), controller.deactivate);
 router.put('/:id/apply', auth.isAuthenticated(), controller.apply);
 router.put('/:id/unapply', auth.isAuthenticated(), controller.unapply);
+router.get('/admin', auth.hasRole('admin'),controller.getAllAdmin);
 
 module.exports = router;

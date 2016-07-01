@@ -57,6 +57,7 @@ function getAll(req, res, next) {
 
             delete task.user.id;
             delete task.user.email;
+            delete task.user.phone;
             delete task.candidates;
 
             newArrayTasks.push(task);
@@ -65,6 +66,20 @@ function getAll(req, res, next) {
 
         var response = {
             tasks: newArrayTasks
+        };
+        return res.json(response);
+    }).catch((err) => {
+        return error.handleError(res);
+    });
+}
+
+function getAllAdmin(req, res, next) {
+    var user = req.user;
+    Task.findAsync({})
+        .then((arrayTasks) => {
+
+        var response = {
+            tasks: arrayTasks
         };
         return res.json(response);
     }).catch((err) => {
@@ -150,5 +165,6 @@ module.exports = {
     getAll: getAll,
     deactivate: deactivate,
     apply: apply,
-    unapply: unapply
-}
+    unapply: unapply,
+    getAllAdmin: getAllAdmin
+};
